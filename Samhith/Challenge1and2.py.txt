@@ -1,0 +1,36 @@
+import time
+
+def challenge1():
+  cities = ["Richmond","New York", "Chicago", "Atlanta", "Austin", "Alexandria"]
+  for i in cities: 
+    x = i.startswith("A")
+    if x == True: 
+      print (i) 
+
+def challenge2():
+  numbers = [1,7,3,6,9,20,5,6,8,9,0] 
+  for number in numbers:
+    if number > 5: 
+      print(number)
+
+
+def bonuschallenge():
+  mynum= input("Enter a number between 1 and 20:")
+  numbers = [1,7,3,6,9,20,5,6,8,9,0] 
+  for number in numbers:
+    if number > int(mynum): 
+      print(number)
+
+def temp():
+  counter=0
+  while True :
+    print("-----------")
+    print(counter)
+    print("-----------")
+    challenge1()
+    challenge2()
+    counter=counter+1
+    time.sleep(1)
+
+bonuschallenge()
+
