@@ -2,7 +2,7 @@ import random
 myrandom=random.randint(1,100)
 #print(myrandom)
 
-while True:
+while True: # Infinite Loop
   userguess=input("Enter a number between 1 and 100: ")
   if myrandom==int(userguess):
     print("You Won!!")
@@ -12,6 +12,8 @@ while True:
   else:
     print("You guessed high")
 
-  useryesno=input("You want to guess again? y/n")
-  if useryesno=="n":
+  useryesno=input("Press 'y' to continue or any other key to exit.")
+  if useryesno=="y":
+    continue
+  else:
     break
