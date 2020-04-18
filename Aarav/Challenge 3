@@ -1,22 +1,20 @@
 import random 
   
 number = random.randint(1, 101) 
-  
 
+while True:
+  guess = int(input("Guess a number between 1 and 100:")) 
+  if guess == number: 
+    print("You Won!!")
+    break
+  elif guess < number:
+    print("You guessed low.") 
+  else:
+    print("You guessed high.")
   
-print("Guess a number between 1 and 101:")  
-  
+  usercontinue = input("Press y to guess again or any other key to exit")
 
-      
-guess = int(input()) 
-      
-if guess == number: 
-          
-        print("You Won!!") 
-break
-          
-elif guess < number: 
-        print("You guessed low.") 
-  
-else: 
-        print("You guessed high.")
+  if usercontinue=='y':
+    continue
+  else:
+    break
