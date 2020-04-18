@@ -1,0 +1,22 @@
+import random 
+  
+number = random.randint(1, 101) 
+  
+
+  
+print("Guess a number between 1 and 101:")  
+  
+
+      
+guess = int(input()) 
+      
+if guess == number: 
+          
+        print("You Won!!") 
+break
+          
+elif guess < number: 
+        print("You guessed low.") 
+  
+else: 
+        print("You guessed high.")
