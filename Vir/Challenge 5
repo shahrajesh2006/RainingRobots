@@ -1,0 +1,25 @@
+#“I have neither given nor received unauthorized assistance on this assignment.” (VS)
+
+animalnameslist = ["Dog","Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe","Elephant","Cheetah"]
+#print(animalnameslist)
+
+category1 = ["Dog", "Tiger", "Giraffe", "Cheetah"]
+category2 = ["Cat", "Monkey", "Elephant", "Cheetah"]
+category3 = ["Mouse", "Snake", "Giraffe", "Elephant", "Cheetah"] 
+category4 = ["Lion", "Tiger", "Monkey", "Snake", "Giraffe", "Elephant", "Cheetah"]
+
+#Line 11 is a code that formats the list in a certain way. It puts each element on a different line when excuted. 
+print("\n".join(animalnameslist))
+
+
+print("\n" "Remeber one animal name from the list above.")
+
+useryesno=input("\n" "Type 'yes' to continue: ")
+
+if useryesno=="yes": 
+  print("\n" "Category 1:")
+  print("\n".join(category1))
+  print("\n" "Is the animal you chose in Category 1?")
+
+useryesno=input("\n" "Type 'yes' to continue: ")
+
