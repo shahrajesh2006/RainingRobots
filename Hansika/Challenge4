@@ -1,0 +1,53 @@
+#“I have neither given nor received unauthorized assistance on this assignment.” (VS)
+
+animals = ["Dog","Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe","Elephant","Cheetah"]
+
+category1 = ["Dog", "Tiger", "Giraffe", "Cheetah"]
+category2 = ["Cat", "Monkey", "Elephant", "Cheetah"]
+category3 = ["Mouse", "Snake", "Giraffe", "Elephant", "Cheetah"] 
+category4 = ["Lion", "Tiger", "Monkey", "Snake", "Giraffe", "Elephant", "Cheetah"]
+
+print(*animals, sep = "\n")
+
+print("\n" "Remeber one animal name from the list above.")
+
+print("\n" "Category 1 %s" % category1, sep = "\n")
+print("\n" "Category 2 %s" % category2, sep = "\n")
+print("\n" "Category 3 %s" % category3, sep = "\n")
+print("\n" "Category 4 %s" % category4, sep = "\n")
+
+#userinput = input(print("\n" "Please enter every category where your animal separated by commas: "))
+
+#categories = str(userinput)
+
+#total = sum(categories)
+
+#print(total)
+input_string = input("\n" "Please enter every category where your animal separated by a space: ")
+userList = input_string.split()
+#print("user list is ", userList)
+
+#print("Calculating sum of element of input list")
+sum = 0
+for num in userList:
+    sum += int(num)
+if (sum == 1):
+  print("Your favorite animal is Dog")
+elif(sum == 2):
+  print("Your favorite animal is Cat")
+elif (sum == 3):
+  print("Your favorite animal is Mouse")
+elif (sum == 4):
+  print("Your favorite animal is Lion")
+elif(sum == 5):
+  print("Your favorite animal is Tiger")
+elif(sum == 6):
+  print("Your favorite animal is Monkey")
+elif(sum == 7):
+  print("Your favorite animal is Snake")
+elif(sum == 8):
+  print("Your favorite animal is Giraffe")
+elif (sum == 9):
+  print("Your favorite animal is Elephant")
+elif (sum == 10):
+  print("Your favorite animal is Cheetah")
