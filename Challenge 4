@@ -1,0 +1,66 @@
+import os
+  
+AnimalNames= ["Dog", "Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe", "Elephant", "Cheetah"]
+Category1=["Dog", "Tiger", "Giraffe", "Cheetah"]
+Category2=["Cat","Monkey","Elephant","Cheetah"]
+Category3=["Mouse", "Snake", "Giraffe", "Elephant", "Cheetah"]
+Category4=["Lion", "Tiger","Monkey","Snake","Giraffe","Elephant","Cheetah"]
+a=0
+for x in AnimalNames:
+  print(x)
+print("Remember one of the 10 animals from the list")
+input("To continue, type c")
+if input == "c":
+  print("Time to continue")
+os.system ("clear")
+
+for w in Category1:
+   print(w)
+print("Is the animal you remembered in this category?")
+equal1 = input("Type y for yes, n for no")
+if equal1 == "y":
+ a = a + 1
+os.system ('clear')
+for z in Category2:
+  print(z)
+print("Is the animal you remembered in this category?")
+equal2 = input("Type y for yes, n for no")
+if equal2 == "y":
+ a = a + 2
+ 
+os.system ('clear')  
+for c in Category3:
+  print(c)
+print("Is the animal you remembered in this category?")
+equal3 = input("Type y for yes, n for no")
+if equal3 == "y":
+ a= a + 3
+os.system ('clear')
+for b in Category4:
+  print(b)
+print("Is the animal you remembered in this category?")
+equal4 = input("Type y for yes, n for no")
+if equal4 == "y":
+ a= a + 4
+os.system ('clear')
+
+if a == 1:
+  print("Your favorite animal is a dog")
+if a == 2:
+  print("Your favorite animal is a cat")
+if a == 3:
+  print("Your favorite animal is a mouse")
+if a == 4:
+  print("Your favorite animal is a lion")
+if a == 5:
+  print("Your favorite animal is a tiger")
+if a == 6:
+  print("Your favorite animal is a monkey")
+if a == 7:
+  print("Your favorite animal is a snake")
+if a == 8:
+  print("Your favorite animal is a giraffe")
+if a == 9:
+  print("Your favorite animal is a elephant")
+if a == 10:
+  print("Your favorite animal is a cheetah")
