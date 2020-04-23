@@ -14,61 +14,48 @@ category4 = ["Lion", "Tiger", "Monkey", "Snake", "Giraffe", "Elephant", "Cheetah
 #Line 11 is a code that formats the list in a certain way. It puts each element on a different line when excuted. 
 print("\n".join(animalnameslist))
 
-useryes=input("\n" "Type 'ok' to continue: ")
+useryes=input("\n" "Type any key to continue... ")
 
-#Category 1 Code
-
-if useryes=="ok": 
-  print("\n" "Category 1:")
-  print("\n".join(category1))
-  print("\n" "Is the animal you chose in Category 1?")
+# now show Category 1
+print("\n" "Category 1:")
+print("\n".join(category1))
+print("\n" "Is the animal you chose in Category 1?")
 
 useryesno1=input("\n" "Type 'yes' if your animal is in the category or type 'no' if it is not: ")
 
 if useryesno1=="yes":
   counter = counter+1
-  print("\n" "Category 2:")
-  print("\n".join(category2))
-  print("\n" "Is the animal you chose in Category 2?")
 
-if useryesno1=="no": 
-  print("\n" "Category 2:")
-  print("\n".join(category2))
-  print("\n" "Is the animal you chose in Category 2?")
+#now show Category 2
+print("\n" "Category 2:")
+print("\n".join(category2))
+print("\n" "Is the animal you chose in Category 2?")
 
 useryesno2=input("\n" "Type 'yes' if your animal is in the category or type 'no' if it is not: ")
 
 if useryesno2=="yes": 
   counter = counter+2
-  print("\n" "Category 3:")
-  print("\n".join(category3))
-  print("\n" "Is the animal you chose in Category 3?")
-
-if useryesno2=="no": 
-  print("\n" "Category 3:")
-  print("\n".join(category3))
-  print("\n" "Is the animal you chose in Category 3?")
+ 
+#now show Category 3
+print("\n" "Category 3:")
+print("\n".join(category3))
+print("\n" "Is the animal you chose in Category 3?")
 
 useryesno3=input("\n" "Type 'yes' if your animal is in the category or type 'no' if it is not: ")
 
 if useryesno3=="yes": 
   counter = counter+3
-  print("\n" "Category 4:")
-  print("\n".join(category4))
-  print("\n" "Is the animal you chose in Category 4?")
 
-if useryesno3=="no": 
-  print("\n" "Category 4:")
-  print("\n".join(category4))
-  print("\n" "Is the animal you chose in Category 4?")
+#now show Category 4
+print("\n" "Category 4:")
+print("\n".join(category4))
+print("\n" "Is the animal you chose in Category 4?")
 
 useryesno4=input("\n" "Type 'yes' if your animal is in the category or type 'no' if it is not: ")
 
 if useryesno4=="yes": 
   counter = counter+4
-  print("\n" "Your favorite animal is "+animalnameslist[counter-1]+"!")
+ 
 
-if useryesno4=="no": 
-  print("\n" "Your favorite animal is "+animalnameslist[counter-1]+"!")
+print("\n" "Your favorite animal is "+animalnameslist[counter-1]+"!")
   
-
