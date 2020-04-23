@@ -1,13 +1,36 @@
 class Robot:
-  def __init__(self,name,color,weight):
+  #this is the constructor to build the object of this class
+  def __init__(self,name,color,weight,model):
     self.name=name
     self.color = color
     self.weight = weight
+    self.model=model
+  #this is a function which prints the name of the Robot
   def introduce_self(self):
     print("My name is " + self.name)
 
-r1 = Robot("tom","red",30)
-r2= Robot("jerry","blue",40)
+  #this is a function which prints the model of the Robot
+  def print_model(self):
+    print("My name is " + self.model)
+
+  #this is a function which prints the color of the Robot
+  def print_color(self):
+    print("My name is " + self.color)
+  
+  #this is a function which prints the color of the Robot
+  def print_weight(self):
+    print("My name is " + str(self.weight))
+
+r1 = Robot("tom","red",30,"T20")
+r2= Robot("jerry","blue",40,"T20")
 
 r1.introduce_self()
+r1.print_color()
+r1.print_model()
+r1.print_weight()
+
+
 r2.introduce_self()
+r2.print_color()
+r2.print_model()
+r2.print_weight()
