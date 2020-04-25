@@ -1,38 +1,38 @@
 
 AnimalNames= ["Dog", "Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe", "Elephant", "Cheetah"]
-catagory1= ["Dog", "Mouse", "Tiger", "Snake", "Giraffe"]
+catagory1= ["Dog", "Mouse", "Tiger", "Snake", "Giraffe"] #These are specific so each animal gets there value
 catagory2= ["Cat", "Mouse", "Monkey", "Snake", "Elephant"]
 catagory3= ["Lion", "Tiger", "Elephant", "Giraffe"]
 catagory4= ["Giraffe", "Snake", "Elephant", "Monkey",]
 c=0
-for y in AnimalNames:
+for y in AnimalNames:#This is the beggining when they remeber an animal
  print (y)
 print("Remember one of the animals")
 Yesno = input("Press y when to countinue:")
 if Yesno =="y":
  print ("It is time to continue")
 
-print(catagory1)
+print(catagory1)#This is the first catagory but we ask if there animal is in this catagory
 Yesno1= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
 if Yesno1 == "y":
- c= c + 1
+ c= c + 1 #If they say yes the counter adds 1
 
-print(catagory2)
+print(catagory2) #This is the second catagory but we ask if there animal is in this catagory
 Yesno2= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
 if Yesno2 == "y":
  c= c + 2
 
-print(catagory3)
+print(catagory3)#This is the third catagory but we ask if there animal is in this catagory
 Yesno3= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
 if Yesno3 == "y":
  c= c + 3
 
-print(catagory4)
+print(catagory4) #This is the fourth catagory but we ask if there animal is in this catagory
 Yesno4= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
 if Yesno4 == "y":
  c= c + 4
 
-if c==0:
+if c==0: #Each animal has there own value. Every time you say yes te value is being increased. If you say yes for the second and fourth catagory your value would be and the monkeys value is 6.
  print("Your animal is a cheetah and it is very fast.")
 if c==1:
  print("Your animal is a dog which is a mans best friend.")
