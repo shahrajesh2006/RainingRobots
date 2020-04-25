@@ -1,8 +1,9 @@
+
 AnimalNames= ["Dog", "Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe", "Elephant", "Cheetah"]
-catagory1= ["Dog", "Mouse", "Tiger", "Snake", "Elephant", "Giraffe"]
-catagory2= ["Cat", "Mouse", "Monkey", "Snake", "Elphant"]
+catagory1= ["Dog", "Mouse", "Tiger", "Snake", "Giraffe"]
+catagory2= ["Cat", "Mouse", "Monkey", "Snake", "Elephant"]
 catagory3= ["Lion", "Tiger", "Elephant", "Giraffe"]
-catagory4= ["Giraffe", "Snake", "Elephant"]
+catagory4= ["Giraffe", "Snake", "Elephant", "Monkey",]
 c=0
 for y in AnimalNames:
  print (y)
