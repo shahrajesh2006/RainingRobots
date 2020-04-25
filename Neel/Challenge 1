@@ -1,0 +1,7 @@
+Challenge 1 
+numbers=[1,7,3,6,9,20,5,6,8]
+for number in numbers:
+ 
+  if number > 5:
+   
+   print(number)
