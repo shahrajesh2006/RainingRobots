@@ -1,0 +1,5 @@
+cities = ["Richmond","New York", "Chicago", "Atlanta", "Austin", "Alexandria"]
+for i in cities:
+  x = i.startswith("A")
+  if x == True:
+    print (i) 
