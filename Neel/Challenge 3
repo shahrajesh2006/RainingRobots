@@ -1,0 +1,14 @@
+import random
+randomnumber = random.randrange(1,101)
+print(randomnumber)
+NI = "y"
+while NI == "y":
+ x = int (input("Guess a number between 1 and 100:"))
+ if x > randomnumber:
+  print("That was to high.")
+ elif x < randomnumber:
+  print("That was too low")
+ else:
+  print ("Well done, you have won")
+  break
+ NI = (input("Would you like to try again"))
