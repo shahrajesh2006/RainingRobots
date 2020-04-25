@@ -1,0 +1,53 @@
+AnimalNames= ["Dog", "Cat","Mouse","Lion","Tiger","Monkey","Snake","Giraffe", "Elephant", "Cheetah"]
+catagory1= ["Dog", "Mouse", "Tiger", "Snake", "Elephant", "Giraffe"]
+catagory2= ["Cat", "Mouse", "Monkey", "Snake", "Elphant"]
+catagory3= ["Lion", "Tiger", "Elephant", "Giraffe"]
+catagory4= ["Giraffe", "Snake", "Elephant"]
+c=0
+for y in AnimalNames:
+ print (y)
+print("Remember one of the animals")
+Yesno = input("Press y when to countinue:")
+if Yesno =="y":
+ print ("It is time to continue")
+
+print(catagory1)
+Yesno1= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
+if Yesno1 == "y":
+ c= c + 1
+
+print(catagory2)
+Yesno2= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
+if Yesno2 == "y":
+ c= c + 2
+
+print(catagory3)
+Yesno3= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
+if Yesno3 == "y":
+ c= c + 3
+
+print(catagory4)
+Yesno4= input("Is the animal you remebered in the catagory above? y for yes and anything else for no:")
+if Yesno4 == "y":
+ c= c + 4
+
+if c==0:
+ print("Your animal is a cheetah and it is very fast.")
+if c==1:
+ print("Your animal is a dog which is a mans best friend.")
+if c==2:
+ print("your animal is a cat which is a very good pet.")
+if c==3:
+ print("your animal is a Mouse. A mouse was a main character on the show Tom and Jerry.")
+if c==4:
+ print("Your animal is a lion that had a whole movie made about them. This movie was called lion King.")
+if c==5:
+ print("Your animal is a tiger which has stripes. They are one of the creator's favorite animal.")
+if c==6:
+ print("Your animal is a monkey which likes to eat bananas. The creator of this program was a monkey in one of the plays he did.")
+if c==7: 
+ print("Your animal is a snake which a lot of people are scared of. DOnt bring a snake in a middle of an event, it is a bad idea.")
+if c==8:
+ print("Your animal is a giraffe which has a long neck and are herbivores.")
+if c==9:
+ print("Your animal is an elephant. There was a movie made about an elephant called dumbo. Elephants have a long trunk with one tusk on each side.")
