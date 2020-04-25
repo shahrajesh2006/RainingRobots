@@ -1,0 +1,48 @@
+CA = 0
+
+AllAnimals = ("Dog", "Cat", "Mouse", "Lion", "Tiger", "Monkey", "Snake", "Giraffe", "Elephant", "Cheetah")
+
+Category1 = ("Dog", "Tiger", "Giraffe", "Cheetah")
+Category2 = ("Cat", "Monkey", "Elephant", "Cheetah")
+Category3 = ("Mouse", "Snake", "Giraffe", "Elephant", "Cheetah")
+Category4 = ("Lion", "Tiger", "Monkey", 
+"Snake", "Giraffe", "Elephant", "Cheetah")
+
+print("Remember one of the following animals:")
+for a in AllAnimals:
+  print(a)
+
+RUDone = input("When you are done, type done: ")
+if RUDone == "done" or "Done":
+  print("We will start now:")
+
+for C1 in Category1:
+  print(C1)
+print("Is the animal you chose in this list?")
+C1a = input("If it is, type yes and if it isn't, type no: ")
+if C1a == "yes":
+  CA = CA + 1
+
+for C2 in Category2:
+  print(C2)
+print("Is the animal you chose in this list?")
+C2a = input("If it is, type yes and if it isn't, type no: ")
+if C2a == "yes":
+  CA = CA + 2
+
+for C3 in Category3:
+  print(C3)
+print("Is the animal you chose in this list?")
+C3a = input("If it is, type yes and if it isn't, type no: ")
+if C3a == "yes":
+  CA = CA + 3
+
+for C4 in Category4:
+  print(C4)
+print("Is the animal you chose in this list?")
+C4a = input("If it is, type yes and if it isn't, type no: ")
+if C4a == "yes":
+  CA = CA + 4
+
+print("The animal you chose is a " + AllAnimals[CA-1])
+“I have neither given nor received unauthorized assistance on this assignment.” (AL)
