@@ -14,7 +14,7 @@ class Robot:
         print("Hi my color is " + self.color)
     
     def introduce_Weight(self):
-        print("Hi my weight is " + self.weight)
+        print("Hi my weight is " + str(self.weight))
     
     def compareWeight(self,wt):
         if(self.weight==wt):
@@ -26,15 +26,23 @@ class Robot:
           
 #Here is all of the data. Also this is in the form the constructor is in which is above.
 
-r1 = Robot("neel", "Green", "30")
-r2 = Robot("Tom", "blue", "40")
+r1 = Robot("neel", "Green", 30)
+r2 = Robot("Tom", "blue", 40)
 #Here I am calling all my functions in an easy and reliable way.
 print("Robot 1:")
 r1.introduce_self(10)
 r1.introduce_Color()
 r1.introduce_Weight()
 
-var compareWeight1=r1.compareWeight(30)
+compareWeight1=r1.compareWeight(30) # weight is SAME
+print(compareWeight1)
+
+compareWeight1=r1.compareWeight(40) # weight is LOW
+print(compareWeight1)
+
+compareWeight1=r1.compareWeight(30) # weight is HIGH
+print(compareWeight1)
+
 
 print("Robot 2:")
 r2.introduce_self(8)
