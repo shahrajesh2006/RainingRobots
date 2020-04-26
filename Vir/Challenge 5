@@ -1,0 +1,29 @@
+class Robot:
+#Constructor Function
+  def __init__(self, Name, Color, Weight): 
+
+#Robot Attributes
+      self.name= Name 
+      self.color= Color 
+      self.weight= Weight
+
+ # Funtions that print Robot name,color,weight
+  def introduce_self(self):
+      print("Hi my name is " + self.name)
+  def introduce_Color(self):
+      print("Hi my color is " + self.color)
+  def introduce_Weight(self):
+      print("Hi my weight is " + self.weight)
+
+robot1 = Robot("Jerry", "Blue", "40")
+robot2 = Robot("Tom", "Red", "30")
+
+print("Robot 1:")
+robot1.introduce_self()
+robot1.introduce_Color()
+robot1.introduce_Weight()
+print("Robot 2:")
+robot2.introduce_self()
+robot2.introduce_Color()
+robot2.introduce_Weight()
+
