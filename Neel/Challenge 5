@@ -1,0 +1,32 @@
+class Robot:
+#This is a constructor which helped make the code smaller and easier
+    def __init__(self, Name, Color, Weight):  
+#Each of these are setting one of the attribute to the given robot
+        self.name=Name
+        self.color=Color
+        self.weight=Weight
+ #Here are my functions that are the way the words are written out
+    def introduce_self(self):
+        print("Hi my name is " + self.name)
+    def introduce_Color(self):
+        print("Hi my name is " + self.color)
+    def introduce_Weight(self):
+        print("Hi my name is " + self.weight)
+#Here is all of the data. Also this is in the form the constructor is in which is above.
+r1 = Robot("Neel", "Green", "30")
+r2 = Robot("Tom", "blue", "40")
+#Here I am calling all my functions in an easy and reliable way.
+print("Robot 1:")
+r1.introduce_self()
+r1.introduce_Color()
+r1.introduce_Weight()
+print("Robot 2:")
+r2.introduce_self()
+r2.introduce_Color()
+r2.introduce_Weight()
+
+
+#r1.name = "Neel" 
+#r1.color = "Green"
+#r1.weight = 30  
+#r1.introduce_self()  
