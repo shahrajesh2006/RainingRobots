@@ -1,3 +1,5 @@
+“I have neither given nor received unauthorized assistance on this assignment.” (AL)
+
 CA = 0
 
 AllAnimals = ("Dog", "Cat", "Mouse", "Lion", "Tiger", "Monkey", "Snake", "Giraffe", "Elephant", "Cheetah")
@@ -45,4 +47,3 @@ if C4a == "yes":
   CA = CA + 4
 
 print("The animal you chose is a " + AllAnimals[CA-1])
-“I have neither given nor received unauthorized assistance on this assignment.” (AL)
