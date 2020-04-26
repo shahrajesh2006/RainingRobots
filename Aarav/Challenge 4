@@ -1,4 +1,4 @@
-“I have neither given nor received unauthorized assistance on this assignment.” (AL)
+#“I have neither given nor received unauthorized assistance on this assignment.” (AL)
 
 CA = 0
 
@@ -15,7 +15,7 @@ for a in AllAnimals:
   print(a)
 
 RUDone = input("When you are done, type done: ")
-if RUDone == "done" or "Done":
+if RUDone.lower() == "done":# convert to lower case before compare
   print("We will start now:")
 
 for C1 in Category1:
