@@ -40,7 +40,7 @@ print(compareWeight1)
 compareWeight1=r1.compareWeight(40) # weight is LOW
 print(compareWeight1)
 
-compareWeight1=r1.compareWeight(30) # weight is HIGH
+compareWeight1=r1.compareWeight(20) # weight is HIGH
 print(compareWeight1)
 
 
