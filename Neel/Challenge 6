@@ -1,0 +1,81 @@
+import random
+import os
+
+print("Welcome to the random number game")
+
+P1c=1
+P2c=1
+
+class Player:
+    #This is a constructor which helped make the code smaller and easier
+    def __init__(self, playerName, randomNumber, numberOfAttempts):  
+#Each of these are setting one of the attribute to the given robot
+        self.name=playerName
+        self.randomnumber= randomNumber
+        self.tries= numberOfAttempts
+ #Here are my functions that are the way the words are written out
+    def introduce_self(self):
+        print("Hi " + self.name)
+    def introduce_random_number(self):
+        print("Your random number was "  + self.randomnumber)
+    def introduce_Attempts(self):
+        print("Your number of attempts was " + self.tries)
+
+Player1name= input("Player 1, what would you like your name to be:")
+Player2name= input("Player 2, what would you like your name to be:")
+os.system ("clear")
+
+randomnumberP1 = random.randrange(1,101)
+randomnumberP2 = random.randrange(1,101)
+
+NI = "y"
+while NI == "y":
+ x = int (input("Guess a number between 1 and 100:"))
+ if x > randomnumberP1:
+  print("That was to high.")
+  P1c = P1c + 1
+ elif x < randomnumberP1:
+  print("That was too low")
+  P1c = P1c + 1
+ else:
+  print ("Well done, you have won")
+  break
+
+P1 = Player(Player1name, str(randomnumberP1), str(P1c))
+P2 = Player(Player2name, str(randomnumberP2), str(P2c))
+os.system ("clear")
+
+P1.introduce_self()
+P1.introduce_random_number()
+P1.introduce_Attempts()
+
+Yesno = input("Player2 are you ready?")
+if Yesno =="y":
+ print ("It is time to continue")
+os.system ("clear")
+print("Player 2, it is your turn")
+
+NI = "y"
+while NI == "y":
+ x = int (input("Guess a number between 1 and 100:"))
+ if x > randomnumberP2:
+  print("That was to high.")
+  P2c = P2c + 1
+ elif x < randomnumberP2:
+  print("That was too low")
+  P2c = P2c + 1
+ else:
+  print ("Well done, you have won")
+  break
+os.system ("clear")
+
+P2.introduce_self()
+P2.introduce_random_number()
+P2.introduce_Attempts()
+os.system ("clear")
+
+if P1c < P2c:
+  print("The winner is " + Player1name)
+else:
+  print("The winner is " + Player2name)
+
