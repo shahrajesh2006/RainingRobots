@@ -1,0 +1,36 @@
+import random
+import os 
+
+print("Welcome to the Random Number Game")
+singleortwo=input("\n" "Type 1 to play Single Player or Type 2 to play Two Players: ")
+ 
+if singleortwo=="1":
+  os.system ("clear")
+print("Random Number Game | Single Player")
+myrandom=random.randint(1,100)
+while True: # Infinite Loop
+  userguess=input("\n" "Enter a number between 1 and 100: ")
+  if myrandom==int(userguess):
+    print("You Won!!")
+    break
+  elif myrandom > int(userguess):
+    print("You guessed low")
+  else:
+    print("You guessed high")
+
+  useryesno=input("Press 'y' to continue or any other key to exit.")
+  if useryesno=="y":
+    continue
+  else:
+    break
+    
+if singleortwo=="2":
+
+
+
+
+  class Player:
+    def __init__(self, playerName, randomNumber, numberOfAttempts):
+      self.Name = playerName
+      self.random = randomNumber
+      self.attempts = numberOfAttempts
