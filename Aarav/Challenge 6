@@ -1,0 +1,59 @@
+PA = 0
+class Player:
+  def __init__(playerName, randomNumber, numberOfAttempts):
+    playerName = name
+    randomNumber = number
+    numberOfAttempts = numberOfAttempts
+
+  def incrementNumberOfAttempts(self):
+    PA = PA + 1
+
+  def isGuessNumberValid(self, guessNumber):
+    while True:
+      guess = int(input("Guess a number between 1 and 100:"))
+      if guess == number: 
+        print("You Won!!")
+        break
+      elif guess < number:
+        print("You guessed low.") 
+      else:
+        print("You guessed high.")
+
+import random 
+  
+number = random.randint(1, 101)
+
+Player1 = Player()
+Player1.name = input("Enter player 1 name: ")
+Player1.number = number
+Player1.numberOfAttempts = PA
+
+import random
+
+number = random.randint(1, 101)
+
+Player2 = Player()
+Player2.name = input("Enter player 2 name: ")
+Player2.number = number
+Player2.numberOfAttempts = PA
+
+# import random 
+  
+# number = random.randint(1, 101) 
+
+# while True:
+#   guess = int(input("Guess a number between 1 and 100:")) 
+#   if guess == number: 
+#     print("You Won!!")
+#     break
+#   elif guess < number:
+#     print("You guessed low.") 
+#   else:
+#     print("You guessed high.")
+  
+#   usercontinue = input("Press y to guess again or any other key to exit")
+
+#   if usercontinue=='y':
+#     continue
+#   else:
+#     break
