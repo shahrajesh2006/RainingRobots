@@ -15,7 +15,7 @@ class Player:
 
       
 
- def is_Guess_Number_Valid(self):
+ def is_Guess_Number_Valid(self, guessNumber):
     ui = "y"
     while not ui == "y":
      playersguess = int(input("Guess a number between 1-100"))
