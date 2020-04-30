@@ -3,9 +3,6 @@ import os
 
 print("Welcome to the random number game")
 
-#This is the variables that coumt th number of attempts
-P1c=1
-P2c=1
 
 #Here is my my class with my constructor and functions
 class Player:
@@ -16,60 +13,53 @@ class Player:
         self.randomnumber= randomNumber
         self.tries= numberOfAttempts
  #Here are my functions that are the way the words are written out
-    def introduce_self(self):
-        print("Hi " + self.name)
-    def introduce_random_number(self):
-        print("Your random number was "  + self.randomnumber)
-    def introduce_Attempts(self):
-        print("Your number of attempts was " + self.tries)
+    def incrementNumberOfAttempts(self):
+        self.tries=self.tries +1
+    def isGuessNumberValid(self, guessnumber):
+        if self.randomnumber==guessnumber:
+         print("Great, you did it")
+         return "valid"
+        elif self.randomnumber<guessnumber:
+         print("To high")
+         return "high"
+        elif self.randomnumber>guessnumber:
+         print("to low")
+         return "low"
+    def PlayerStats(self):
+        print("Hello " + self.name + ". Your number of attempts was " + str(self.tries) + ". Your random number was " + str(self.randomnumber))
+        
+        
 
 #Here is the way I get the name
 Player1name= input("Player 1, what would you like your name to be:")
 Player2name= input("Player 2, what would you like your name to be:")
 os.system ("clear")
 
-#Here is the randomnumber number generated for each player
-randomnumberP1 = random.randrange(1,101)
-randomnumberP2 = random.randrange(1,101)
-
-#Here is th game part of the function.
-NI = "y"
-while NI == "y":
- x = int (input("Guess a number between 1 and 100:"))
- if x > randomnumberP1:
-  print("That was to high.")
-  P1c = P1c + 1
- elif x < randomnumberP1:
-  print("That was too low")
-  P1c = P1c + 1
- else:
-  print ("Well done, you got it")
-  break
-
-#This ask player 2 if they are ready
-YesnoP1 = input("Player 2 ready?")
-if YesnoP1 =="y" or "Y":
- print ("Ok lets go")
-os.system ("clear")
-
-#Here is the game for player 2 
-NI = "y"
-while NI == "y":
- x = int (input("Guess a number between 1 and 100:"))
- if x > randomnumberP2:
-  print("That was to high.")
-  P2c = P2c + 1
- elif x < randomnumberP2:
-  print("That was too low")
-  P2c = P2c + 1
- else:
-  print ("Well done, you got it")
-  break
-
 #Here is the objects of the players
-P1 = Player(Player1name, str(randomnumberP1), str(P1c))
-P2 = Player(Player2name, str(randomnumberP2), str(P2c))
+P1 = Player(Player1name, random.randrange(1, 101), 0)
+P2 = Player(Player2name, random.randrange(1, 101), 0)
 os.system ("clear")
+
+NI = "y"
+while NI == "y":
+ x = int (input("Guess a number between 1 and 100:"))
+ P1.incrementNumberOfAttempts()
+ result=P1.isGuessNumberValid(x)
+ if(result=="valid"):
+   break
+
+YesnoP1 = input("Player 2 are you ready?")
+if YesnoP1 =="y" or "Y":
+ print ("Hee we goooo")
+os.system ("clear")
+
+NI = "y"
+while NI == "y":
+ x = int (input("Guess a number between 1 and 100:"))
+ P2.incrementNumberOfAttempts()
+ result=P2.isGuessNumberValid(x)
+ if(result=="valid"):
+   break
 
 #Here I am asking to say if they are ready for the winner
 YesnoP2 = input("Are we ready to see who won(type y to continue)?")
@@ -78,21 +68,17 @@ if YesnoP2 =="y" or "Y":
 os.system ("clear")
 
 #Here I am writing the winner
-if P1c < P2c:
+if P1.tries < P2.tries:
   print("The winner is " + Player1name)
-elif P1c > P2c:
+elif P1.tries > P2.tries:
   print("The winner is " + Player2name)
-elif P1c == P2c:
+elif P1.tries == P2.tries:
   print("Its a tie")
 print("----------------------------------")
 
 #Here I am writing the final stats
 print("Here are the final results")
 print("Player1:")
-P1.introduce_self()
-P1.introduce_random_number()
-P1.introduce_Attempts()
+P1.PlayerStats()
 print("Player2:")
-P2.introduce_self()
-P2.introduce_random_number()
-P2.introduce_Attempts()
+P2.PlayerStats()
