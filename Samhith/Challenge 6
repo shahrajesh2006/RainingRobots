@@ -1,0 +1,42 @@
+import random
+
+
+class Player:
+ def __init__(self, playerName, randomNumber, numberOfAttempts):
+   self.Name = playerName
+   self.random = randomNumber
+   self.attempts = numberOfAttempts
+
+ def Number_Of_Attempts(self):
+        Attempts = 0
+        Attempts = Attempts + 1
+  
+ 
+
+      
+
+ def is_Guess_Number_Valid(self):
+    ui = "y"
+    while not ui == "y":
+     playersguess = int(input("Guess a number between 1-100"))
+     if playersguess == randomnumber:
+      print("You guessed correct!")
+      print(Name2.playerName  + "will play now.")
+     elif playersguess > random1:
+      print("You guessed high!")
+     elif playersguess < randomnumber:
+      print("You guessed low!")
+
+      ui = (input("Press any key except y."))
+
+
+Name1 = input("Enter Player 1's Name")
+Random1 = random.randrange(1, 101)
+Player1Stats = Player(Name1, Random1, 0)
+
+Name2 = input("Enter Player 2's Name")
+Random2 = random.randrange(1, 101)
+Player2Stats = Player(Name2, Random2, 0)
+
+print(Name1.playerName + "plays first")
+playersguess = int ( input("Guess a number between 1-100"))
