@@ -72,6 +72,7 @@ while True:
 
 WinnersPrecede = input("Are we ready to see who won(type y to continue)?")
 if WinnersPrecede.lower().strip() == "y":
+ os.system("clear")
  winner = input("Then, lets see who wonnnnnnnn! Press any button except c")
 if winner == "c":
  os.system("clear")
