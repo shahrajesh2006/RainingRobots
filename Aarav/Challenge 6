@@ -1,59 +1,68 @@
-PA = 0
-class Player:
-  def __init__(playerName, randomNumber, numberOfAttempts):
-    playerName = name
-    randomNumber = number
-    numberOfAttempts = numberOfAttempts
-
-  def incrementNumberOfAttempts(self):
-    PA = PA + 1
-
-  def isGuessNumberValid(self, guessNumber):
-    while True:
-      guess = int(input("Guess a number between 1 and 100:"))
-      if guess == number: 
-        print("You Won!!")
-        break
-      elif guess < number:
-        print("You guessed low.") 
-      else:
-        print("You guessed high.")
-
-import random 
-  
-number = random.randint(1, 101)
-
-Player1 = Player()
-Player1.name = input("Enter player 1 name: ")
-Player1.number = number
-Player1.numberOfAttempts = PA
-
 import random
 
-number = random.randint(1, 101)
+class Player:
+  def __init__(self, playerName, randomNumber, numberOfAttempts):
+    self.name = playerName
+    self.number = randomNumber
+    self.attempts = numberOfAttempts
 
-Player2 = Player()
-Player2.name = input("Enter player 2 name: ")
-Player2.number = number
-Player2.numberOfAttempts = PA
+  def incrementNumberOfAttempts(self):
+    self.attempts = self.attempts + 1
 
-# import random 
-  
-# number = random.randint(1, 101) 
+  def isGuessNumberValid(self, guessNumber):
+      if self.number == guessNumber: 
+        print("You guessed RIGHT!")
+        return "correct"
+      elif self.number > guessNumber:
+        print("You guessed low.")
+        return "low"
+      else:
+        print("You guessed high.")
+        return "high"
 
-# while True:
-#   guess = int(input("Guess a number between 1 and 100:")) 
-#   if guess == number: 
-#     print("You Won!!")
-#     break
-#   elif guess < number:
-#     print("You guessed low.") 
-#   else:
-#     print("You guessed high.")
-  
-#   usercontinue = input("Press y to guess again or any other key to exit")
 
-#   if usercontinue=='y':
-#     continue
-#   else:
-#     break
+Player1name = input("Enter player 1 name: ")
+Player2name = input("Enter player 2 name: ")
+
+Player1 = Player(Player1name, random.randint(1, 101), 0)
+Player2 = Player(Player2name, random.randint(1, 101), 0)
+
+import time
+time.sleep(2)
+
+print(Player1name + " will play first.")
+
+import time
+time.sleep(2)
+
+while True:
+  guessNumber = int(input("Guess a number between 1 and 100: ")) 
+  Player1.incrementNumberOfAttempts()
+  cow = Player1.isGuessNumberValid(guessNumber)
+  if cow == "correct":
+    break
+
+import time
+time.sleep(2)
+
+print("Now " + Player2name + " will play.")
+
+import time
+time.sleep(2)
+
+while True:
+  guessNumber = int(input("Guess a number between 1 and 100: ")) 
+  Player2.incrementNumberOfAttempts()
+  cow = Player2.isGuessNumberValid(guessNumber)
+  if cow == "correct":
+    break
+
+import time
+time.sleep(2)
+
+if Player1.attempts < Player2.attempts:
+  print("The winner is " + Player1name)
+elif Player1.attempts > Player2.attempts:
+  print("The winner is " + Player2name)
+else:
+  print("It is a tie")
