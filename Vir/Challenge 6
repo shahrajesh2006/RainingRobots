@@ -1,0 +1,112 @@
+import random
+import os
+
+class Player:
+  def __init__(self, playerName, randomNumber, numberOfAttempts):
+    self.Name = playerName
+    self.random = randomNumber
+    self.attempts = numberOfAttempts
+
+  def incrementNumberOfAttempts(self):
+    self.attempts = self.attempts + 1
+
+  def isGuessNumberValid(self,guessNumber):
+
+    if self.random == guessNumber:
+      print("You guessed right!")
+      return "valid"
+
+    elif self.random > guessNumber:
+      print("You guessed low!")
+      return "low"
+
+    else:
+      print("You guessed high!")
+      return "high"
+
+  def printPlayerResults(self):
+       print("\n" "Player Name: " + self.Name)
+       print("Your random number was "  + str(self.random))
+       print("Your number of attempts was " + str(self.attempts))
+
+
+
+print("Welcome to the Random Number Game")
+singleortwo=input("\n" "Type 1 to play Single Player or Type 2 to play Two Players: ")
+
+os.system ("clear")
+
+if singleortwo=="1":
+  myrandom=random.randint(1,101)
+  while True: # Infinite Loop
+    print("Random Number Game | Single Player")
+    userguess=input("\n" "Enter a number between 1 and 100: ")
+    if myrandom==int(userguess):
+      print("You Won!!")
+      break
+    elif myrandom > int(userguess):
+      print("You guessed low")
+    else:
+      print("You guessed high")
+    useryesno=input("Press 'y' to continue or any other key to exit.")
+    if useryesno=="y":
+      continue
+    else:
+      break
+
+
+if singleortwo=="2":
+  print("Random Number Game | Two Players")
+
+  Name1 = input("\n" "Enter Player 1's Name: ")
+  Random1 = random.randrange(1, 101)
+  P1 = Player(Name1, Random1, 0)
+
+os.system ("clear")
+
+print("Random Number Game | Two Players")
+
+Name2 = input("\n" "Enter Player 2's Name: ")
+Random2 = random.randrange(1, 101)
+P2 = Player(Name2, Random2, 0)
+
+os.system ("clear")
+
+print("Random Number Game | Two Players")
+print("\n")
+print(Name1 + "'s Turn")
+
+while True:
+ x = int (input("\n" "Guess a number between 1 and 100: "))
+ P1.incrementNumberOfAttempts()#This increments the number of attempts
+ result=P1.isGuessNumberValid(x)
+ if(result=="valid"):
+   break
+
+os.system ("clear")
+
+print("Random Number Game | Two Players")
+print("\n")
+print(Name2 + "'s Turn")
+
+while True:
+ x = int (input("\n" "Guess a number between 1 and 100: "))
+ P2.incrementNumberOfAttempts()
+ result=P2.isGuessNumberValid(x)
+ if(result=="valid"):
+   break
+
+os.system ("clear")
+
+print("Random Number Game | Two Players")
+
+if P1.attempts < P2.attempts:
+  print("\n" "The winner is " + Name1)
+elif P1.attempts > P2.attempts:
+  print("\n" "The winner is " + Name2)
+elif P1.attempts == P1.attempts:
+  print("\n" "Its a tie")
+
+print("Here are the final results:")
+P1.printPlayerResults()
+P2.printPlayerResults()
