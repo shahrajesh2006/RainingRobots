@@ -26,3 +26,15 @@ class Player:
        print("Player Name: " + self.name)
        print("Your random number was "  + str(self.randomnumber))
        print("Your number of attempts was " + str(self.tries))
+
+    # this function will be used to play the games 
+    def playGame(self):
+      #Here is th game part of the function.
+      input(self.name+" Are u ready? Press any key to continue...")
+      print ("Ok lets go!")
+      while True:
+        x = int (input("Guess a number between 1 and 100:"))
+        self.incrementNumberOfAttempts()#increment number of attempts
+        result=self.isGuessNumberValid(x)
+        if(result=="valid"):
+          break
