@@ -72,15 +72,15 @@ while True:
 
 WinnersPrecede = input("Are we ready to see who won(type y to continue)?")
 if WinnersPrecede.lower().strip() == "y":
-winner = input("Then, lets see who wonnnnnnnn! Press any button except c")
-if winner = "c"
+ winner = input("Then, lets see who wonnnnnnnn! Press any button except c")
+if winner == "c":
  os.system("clear")
 #Here I am writing the winner
-  if P1Object.attempts < P2Object.attempts:
+ if P1Object.attempts < P2Object.attempts:
     print("The winner is " + PlayerName1)
-  elif P1Object.attempts > P2Object.attempts:
+ elif P1Object.attempts > P2Object.attempts:
     print("The winner is " + PlayerName2)
-  elif P1Object.attempts == P2Object.attempts:
+ elif P1Object.attempts == P2Object.attempts:
     print("Its a tie")
 #os.system("clear")
 
