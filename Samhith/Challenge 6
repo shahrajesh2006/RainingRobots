@@ -1,4 +1,57 @@
-GuessedNumber) # compares if guessed number is equal to player's guessed number
+import random 
+import os
+#Line 1-2 are the random number and operating system module 
+
+
+#Here is the class Player 
+class Player:
+    #This is a constructor with 3 arguments
+    def __init__(self, playerName, randomNumber, numberOfAttempts):  
+#Below are the attributes which are assigned to the three arguments
+        self.name=playerName
+        self.random= randomNumber
+        self.attempts= numberOfAttempts
+
+#this function will increment the number of attempts by 1
+    def incrementNumberOfAttempts(self):
+        self.attempts=self.attempts + 1
+    
+    #This function will compare the random number to the player's guessed number
+    def isGuessNumberValid(self,guessNumber):
+      if self.random==guessNumber:
+        print("You guessed right!")
+        return "valid"
+      elif self.random>guessNumber:
+        print("You guessed low!")
+        return "low"
+      else:
+        print("You guessed high!")
+        return "high"
+    #This function will print the game results
+    def PlayerResults(self):
+       print("Player Name: " + self.name)
+       print("Your random number was "  + str(self.random))
+       print("Your number of attempts was " + str(self.attempts))
+
+#Here is the object with three arguments
+PlayerName1= input("Player 1, you can enter your name or a nickname.")
+P1Object = Player(PlayerName1, random.randrange(1,101), 0)
+
+
+PlayerName2= input("Player 2, you can enter a name or a nickname.")
+P2Object = Player(PlayerName2,  random.randrange(1,101), 0)
+
+os.system ("clear")
+
+
+print("Player 1 plays first")
+os.system('clear')
+
+#The game part of the function
+while True:
+ GuessedNumber = int (input("Guess a number between 1 and 100:"))
+ P1Object.incrementNumberOfAttempts()#increment number of attempts
+ result= P1Object.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
  if(result=="valid"):
    break
 
