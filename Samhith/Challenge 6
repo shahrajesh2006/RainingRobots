@@ -80,7 +80,7 @@ if WinnersPrecede.lower().strip() == "y":
     print("The winner is " + PlayerName2)
   elif P1Object.attempts == P2Object.attempts:
     print("Its a tie")
-os.system("clear")
+#os.system("clear")
 
 #Here I am writing the final stats
 print("Here are the final results")
