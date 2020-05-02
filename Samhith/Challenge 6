@@ -1,42 +1,35 @@
-import random
+GuessedNumber) # compares if guessed number is equal to player's guessed number
+ if(result=="valid"):
+   break
 
 
-class Player:
- def __init__(self, playerName, randomNumber, numberOfAttempts):
-   self.Name = playerName
-   self.random = randomNumber
-   self.attempts = numberOfAttempts
+#This ask player 2 if they are ready
+Ready = input("Player 2 ready? Type y to continue")
+if Ready.lower().strip() =="y": 
+ print ("Ok, lets continue!")
+os.system ("clear") #Clears screen
 
- def Number_Of_Attempts(self):
-        Attempts = 0
-        Attempts = Attempts + 1
-  
- 
+#The game for player 2
+while True:
+ GuessedNumber2 = int (input("Guess a number between 1 and 100:"))
+ P2Object.incrementNumberOfAttempts()#increment number of attempts
+ result =P2Object.isGuessNumberValid(GuessedNumber2)
+ if(result =="valid"):
+   break
 
-      
+WinnersPrecede = input("Are we ready to see who won(type y to continue)?")
 
- def is_Guess_Number_Valid(self, guessNumber):
-    ui = "y"
-    while not ui == "y":
-     playersguess = int(input("Guess a number between 1-100"))
-     if playersguess == randomnumber:
-      print("You guessed correct!")
-      print(Name2.playerName  + "will play now.")
-     elif playersguess > random1:
-      print("You guessed high!")
-     elif playersguess < randomnumber:
-      print("You guessed low!")
+if WinnersPrecede.lower().strip() == "y":
+#Here I am writing the winner
+  if P1Object.attempts < P2Object.attempts:
+    print("The winner is " + PlayerName1)
+  elif P1Object.attempts > P2Object.attempts:
+    print("The winner is " + PlayerName2)
+  elif P1Object.attempts == P2Object.attempts:
+    print("Its a tie")
+os.system("clear")
 
-      ui = (input("Press any key except y."))
-
-
-Name1 = input("Enter Player 1's Name")
-Random1 = random.randrange(1, 101)
-Player1Stats = Player(Name1, Random1, 0)
-
-Name2 = input("Enter Player 2's Name")
-Random2 = random.randrange(1, 101)
-Player2Stats = Player(Name2, Random2, 0)
-
-print(Name1.playerName + "plays first")
-playersguess = int ( input("Guess a number between 1-100"))
+#Here I am writing the final stats
+print("Here are the final results")
+P1Object.PlayerResults()
+P2Object.PlayerResults()
