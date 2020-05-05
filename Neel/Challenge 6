@@ -50,7 +50,7 @@ while NI == "y":
 
 YesnoP1 = input("Player 2 are you ready?")
 if YesnoP1 =="y" or "Y":
- print ("Hee we goooo")
+ print ("Here we goooo")
 os.system ("clear")
 
 NI = "y"
