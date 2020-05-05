@@ -56,7 +56,7 @@ while RN == "y":
  result = Player1.isGuessNumberValid(x)
  if(result == "valid"):
   break#breaks 'while' loop if the guess=the number
-  print("Great!")
+
 time.sleep(2)
 os.system("clear")
 
@@ -79,7 +79,7 @@ while RN == "y":
  result = Player2.isGuessNumberValid(x)
  if(result == "valid"):
   break#see '55'
-print("Great!")
+
 time.sleep(2)
 os.system("clear")
 
