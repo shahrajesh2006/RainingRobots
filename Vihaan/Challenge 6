@@ -85,8 +85,8 @@ os.system("clear")
 
 print("Let's see who won!")
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print(Player1.playerScore( ))
-print(Player2.playerScore( ))
+Player1.playerScore
+Player2.playerScore
 
 if Player1.numberOfAttempts < Player2.numberOfAttempts:
   print("The winner is " + Player1.playerName + "!")
