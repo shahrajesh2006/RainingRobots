@@ -1,0 +1,60 @@
+import random 
+import os
+import player
+#Line 1-2 are the random number and operating system module 
+
+
+
+#Here is the object with three arguments
+players = []
+
+peopleplayingvalue = 0
+while peopleplayingvalue <= 10:
+ playersname = print("Player" + str(peopleplayingvalue + 1) + " what is your name or a nickname.")
+ input("If there are no people left, enter none") 
+ NewPerson = (playersname, random.randrange(1,101))
+ players.append(NewPerson)
+ peopleplayingvalue = peopleplayingvalue + 1
+   
+
+peopleplayingvalue = 0
+while peopleplayingvalue < 10:
+  player[peopleplayingvalue].PlayGame()
+  peopleplayingvalue = peopleplayingvalue + 1
+
+
+os.system ("clear")
+
+
+print("Player 1 plays first")
+os.system('clear')
+
+#The game part of the function
+
+
+
+
+#This ask player 2 if they are ready
+Ready = input("Player 2 ready? Type y to continue")
+if Ready.lower().strip() =="y": 
+ print ("Ok, lets continue!")
+os.system ("clear") #Clears screen
+
+
+WinnersPrecede = input("Are we ready to see who won(type y to continue)?")
+
+if WinnersPrecede.lower().strip() == "y":
+#Here I am writing the winner
+  if P1Object.attempts < P2Object.attempts:
+    print("The winner is " + PlayerName1)
+  elif P1Object.attempts > P2Object.attempts:
+    print("The winner is " + PlayerName2)
+  elif P1Object.attempts == P2Object.attempts:
+    print("Its a tie")
+os.system("clear")
+
+#Here I am writing the final stats
+print("Here are the final results")
+P1Object.PlayerResults()
+P2Object.PlayerResults()
+
