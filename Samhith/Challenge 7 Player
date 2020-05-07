@@ -1,3 +1,6 @@
+import time
+
+import os
 #Here is the class Player 
 class Player:
     #This is a constructor with 3 arguments
@@ -29,9 +32,19 @@ class Player:
        print("Your number of attempts was " + str(self.attempts))
     
     def PlayGame(self):
-     while True:
-      GuessedNumber = int (input("Guess a number between 1 and 100:"))
-      P1ObjectincrementNumberOfAttempts()#increment number of attempts
-      result= P1Object.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
-      if(result=="valid"):
-       break
+       begin = input(self.name + " will play now. Are you ready? Print y if you are.")       
+       if begin.lower().strip() == "y":
+         print(3)
+         time.sleep(1)
+         print(2)
+         time.sleep(1)
+         print(1)
+         time.sleep(1)
+         os.system("clear")
+       while True:
+         GuessedNumber = int (input("Guess a number between 1 and 100:"))
+         self.incrementNumberOfAttempts()#increment number of attempts
+         result= self.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
+         if(result=="valid"):
+           print ("before break")
+           break
