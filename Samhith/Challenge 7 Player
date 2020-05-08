@@ -9,6 +9,8 @@ class Player:
         self.name=playerName
         self.random= randomNumber
         self.attempts= numberOfAttempts
+        print(self.random)
+ 
 
 #this function will increment the number of attempts by 1
     def incrementNumberOfAttempts(self):
@@ -32,7 +34,9 @@ class Player:
        print("Your number of attempts was " + str(self.attempts))
     
     def PlayGame(self):
-       begin = input(self.name + " will play now. Are you ready? Print y if you are.")       
+       begin = input(self.name + " will play now. Are you ready? Print y if you are.") 
+       time.sleep(1)
+       os.system("clear")      
        if begin.lower().strip() == "y":
          print(3)
          time.sleep(1)
@@ -46,5 +50,4 @@ class Player:
          self.incrementNumberOfAttempts()#increment number of attempts
          result= self.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
          if(result=="valid"):
-           print ("before break")
-           break
+             break
