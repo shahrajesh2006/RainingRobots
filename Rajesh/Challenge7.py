@@ -54,13 +54,23 @@ time.sleep(1)
 os.system ("clear") #Clears screen
 
 
-
-players.sort(key=lambda x: x.attempts, reverse=False)
+WinningPlayer = players[0]# For now assume first player won
+print("For now the winning player is "+WinningPlayer.name)
+print(WinningPlayer)
 
 
 peopleplayingvalue = 0
 while peopleplayingvalue < int (numberofpeopleplaying):
-  print(players[peopleplayingvalue].name+":"+str(players[peopleplayingvalue].attempts))
+  time.sleep(1)
+  print("looping for the player"+players[peopleplayingvalue].name)
+  if players[peopleplayingvalue].attempts < WinningPlayer.attempts:
+   WinningPlayer = players[peopleplayingvalue]#found a better player so switch
+   print("Found the new winning player is "+WinningPlayer.name)
+  else:
+    print("Winning player is still the same "+WinningPlayer.name)
   peopleplayingvalue = peopleplayingvalue + 1
 
 #With the above logic if there is tie then the first player will be the winner
+  
+
+print("The winner is" + WinningPlayer.name)
