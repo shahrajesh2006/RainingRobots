@@ -69,6 +69,8 @@ while Ui == "c":
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(1)
  os.system("clear")
+ print("Here are the final results")
+ players.PlayerResults()
  print("Thank you for playing the random number game!!!!")
  time.sleep(1)
  Ui = input("Do you want to play again. Type c if you do. If not, type anything except c")
