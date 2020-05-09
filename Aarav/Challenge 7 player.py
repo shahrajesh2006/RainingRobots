@@ -18,11 +18,11 @@ class Player:
         print("You guessed high.")
         return "high"
 
-  def playGame(self)
+  def playGame(self):
     print("Now " + self.name + " will play!")
     while True:
-    guessNumber = int(input("Guess a number between 1 and 100: ")) 
-    Player1.incrementNumberOfAttempts()
-    cow = Player1.isGuessNumberValid(guessNumber)
-    if cow == "correct":
-      break
+      guessNumber = int(input("Guess a number between 1 and 100: ")) 
+      self.incrementNumberOfAttempts()
+      cow = self.isGuessNumberValid(guessNumber)
+      if cow == "correct":
+        break
