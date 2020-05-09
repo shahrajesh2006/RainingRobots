@@ -2,9 +2,9 @@ import random
 import os
 import time
 from player import Player
-#Line 1-2 are the random number and operating system module
+#Line 1-2 are the random number and operating system module. Line 3 imports time module and Line 4 imports local player module
 Ui = "c" 
-while Ui == "c":
+while Ui == "c": #Line 6/7 is used to repeat game if player wants. 
  numberofpeopleplaying = input("How many people are playing? The max is 10 players.")
 
  time.sleep(1)
@@ -12,7 +12,7 @@ while Ui == "c":
 
 
  #Here is the object with three arguments
- players = []
+ players = [] #Empty list
 
  peopleplayingvalue = 0
 
@@ -22,12 +22,14 @@ while Ui == "c":
   players.append(NewPerson)
   print ("New player created..."+players[peopleplayingvalue].name)
   peopleplayingvalue=peopleplayingvalue+1
+  #Line 19-24 asks what their name is and adds it to the list.
 
 
  # players.append(NewPerson)
  # peopleplayingvalue = peopleplayingvalue + 1
  time.sleep(1)
  os.system("clear")
+ #Line 30-31 waits  one second and clears screen
    
 
  peopleplayingvalue = 0
@@ -35,9 +37,10 @@ while Ui == "c":
   players[peopleplayingvalue].PlayGame()
 
   peopleplayingvalue = peopleplayingvalue + 1
+  #Line 35 -39 allows everybody to play game and also uses a function from player module
 
 
- #This ask player 2 if they are ready
+ #This asks  if they are ready to see who won
  print("Are")
  time.sleep(1)
  print("you")
@@ -54,7 +57,8 @@ while Ui == "c":
  if ready.lower().strip() =="y": 
   print("Then lets... see... who... wonnnnnnnnn!")
  time.sleep(1)
- os.system ("clear") #Clears screen
+ os.system ("clear")
+ 
 
 
  WinningPlayer = players[0]# For now assume first player won
@@ -63,16 +67,14 @@ while Ui == "c":
   if players[peopleplayingvalue].attempts < WinningPlayer.attempts:
    WinningPlayer = players[peopleplayingvalue]#found a better player so switch
   peopleplayingvalue = peopleplayingvalue + 1
-
- #With the above logic if there is tie then the first player will be the winner
+#It makes player 1 winner and compares them with other players and if other player has lower attempts, then they will be the "comparer".
   
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(1)
  os.system("clear")
- print("Here are the final results")
- players.PlayerResults()
  print("Thank you for playing the random number game!!!!")
  time.sleep(1)
  Ui = input("Do you want to play again. Type c if you do. If not, type anything except c")
  if Ui.lower().strip() != "c":
   break
+  #Line 77 through 79 asks whether they want to play again and if yes, then it restarts the game, or if they don't want to play it will end the game.
