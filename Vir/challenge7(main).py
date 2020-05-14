@@ -15,7 +15,7 @@ playersplayingvalue = 0
 while playersplayingvalue < int(numberofplayers): 
   playersname = input("Player " + str(playersplayingvalue + 1) + " what is your username: ") 
   NewPlayer = Player(playersname, random.randrange(1,101), 0)
-  players.append(NewPlayer)
+  players.append(NewPlayer)#Adding new player to the list
   print ("Player Created | "+players[playersplayingvalue].name)
   playersplayingvalue = playersplayingvalue+1 
 
@@ -28,23 +28,20 @@ while playersplayingvalue < int(numberofplayers):
   players[playersplayingvalue].playGame() 
   playersplayingvalue = playersplayingvalue + 1 
   
-  print("The results are in... Lets see who won...") 
+
+print("The results are in... Lets see who won...") 
+time.sleep(10) 
+os.system ("clear") 
   
-  time.sleep(10) 
-  os.system ("clear") 
-  
-WinningPlayer = players[0]
+WinningPlayer = players[0]#lets assume first player won
 playersplayingvalue = 0 
 while playersplayingvalue < int (numberofplayers): 
   if players[playersplayingvalue].tries < WinningPlayer.tries:
-    WinningPlayer = players[playersplayingvalue] 
+    WinningPlayer = players[playersplayingvalue]#found a new winner
   playersplayingvalue = playersplayingvalue + 1
 
-  print("Winner | " + WinningPlayer.name)
 
-  time.sleep(2) 
-  os.system("clear") 
-      
-  print("Thank You For Playing")
-
-  time.sleep(1)
+print("Winner | " + WinningPlayer.name)
+time.sleep(2) 
+print("Thank You For Playing")
+time.sleep(1)
