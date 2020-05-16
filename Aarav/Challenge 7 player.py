@@ -26,7 +26,3 @@ class Player:
       cow = self.isGuessNumberValid(guessNumber)
       if cow == "correct":
         break
-
-  def playerResults(self):
-    print("Name: " + self.name)
-    print("You took " + str(self.attempts) + " tries to guess your number.")
