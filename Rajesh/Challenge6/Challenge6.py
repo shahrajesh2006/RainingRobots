@@ -15,24 +15,24 @@ Player2name= input("Player 2, what would you like your name to be:")
 
 P2 = Player(Player2name,  random.randrange(1,101), 0)
 
-P1.playGame()
+P1.PlayGame()
 
 time.sleep(2)
 
 os.system ("clear")
 
-P2.playGame()
+P2.PlayGame()
 
 time.sleep(2)
 
 os.system ("clear")
 
 #Here I am writing the winner
-if P1.tries < P2.tries:
+if P1.tries < P2.attempts:
   print("The winner is " + Player1name)
-elif P1.tries > P2.tries:
+elif P1.tries > P2.attempts:
   print("The winner is " + Player2name)
-elif P1.tries == P1.tries:
+elif P1.tries == P1.attempts:
   print("Its a tie")
 print("----------------------------------")
 
