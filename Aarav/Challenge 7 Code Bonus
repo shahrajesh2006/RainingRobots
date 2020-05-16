@@ -15,7 +15,6 @@ while PCiB < int(PlayNum):
   NP = Player(PlayerName, random.randint(1, 100), 0)
   PCiB = PCiB + 1
   players.append(NP)
-  time.sleep(1)
   os.system("clear")
 
 time.sleep(1)
@@ -33,14 +32,13 @@ print("Give me a second to calculate the winner.")
 time.sleep(2)
 os.system("clear")
 
-WinnerP = players[0]
-PCiB = 0
-while PCiB < int (PlayNum):
-  if players[PCiB].attempts < WinnerP.attempts:
-    WinnerP = players[PCiB]
-  PCiB = PCiB + 1
-
+players.sort(key=lambda x: x.attempts, reverse=False)
 
 print("The winner is about to be announced...")
 time.sleep(2)
-print("The winner is " + WinnerP.name + "!!! Great Job!!!")
+print("The winner is " + players[0].name + "!!! Great Job!!!")
+time.sleep(2)
+print("The results are about to be announced...")
+
+for n in range(int(PlayNum)):
+  players[n].playerResults()
