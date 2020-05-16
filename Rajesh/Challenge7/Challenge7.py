@@ -8,7 +8,7 @@ time.sleep(1)
 os.system("clear")
 
 
-#Here is the object with three arguments
+#Here is the object with three arguments more comments
 players = []
 
 peopleplayingvalue = 0
