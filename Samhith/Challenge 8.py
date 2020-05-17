@@ -1,17 +1,25 @@
-import random
+import random 
 import os
 import time
-from player import Player
-#Line 1-2 are the random number and operating system module
-Ui = "c" 
-while Ui == "c":
- numberofpeopleplaying = input("How many people are playing? The max is 10 players.")
+from Samhith.playerS import Player
 
+
+# Using readlines() 
+file1 = open('Rajesh/bestscore.txt', 'r') 
+Lines = file1.readlines() 
+
+# Strips the newline character 
+for line in Lines: 
+	print(line.strip()) 
+
+#Line 1-2 are the random number and operating system module 
+while True:
+ numberofpeopleplaying = input("How many people are playing? The max is 10 players.")
  time.sleep(1)
  os.system("clear")
 
 
- #Here is the object with three arguments
+
  players = []
 
  peopleplayingvalue = 0
@@ -24,8 +32,7 @@ while Ui == "c":
   peopleplayingvalue=peopleplayingvalue+1
 
 
- # players.append(NewPerson)
- # peopleplayingvalue = peopleplayingvalue + 1
+
  time.sleep(1)
  os.system("clear")
    
@@ -33,26 +40,34 @@ while Ui == "c":
  peopleplayingvalue = 0
  while peopleplayingvalue < int(numberofpeopleplaying):
   players[peopleplayingvalue].PlayGame()
-
   peopleplayingvalue = peopleplayingvalue + 1
+
+ time.sleep(1)
+ os.system("clear")
 
 
  #This ask player 2 if they are ready
  print("Are")
  time.sleep(1)
+ os.system("clear")
  print("you")
  time.sleep(1)
+ os.system("clear")
  print("ready")
  time.sleep(1)
+ os.system("clear")
  print("to see")
  time.sleep(1)
+ os.system("clear")
  print("who")
  time.sleep(1)
+ os.system("clear")
  print("won?")
- ready = input("Print y to continue")
+ time.sleep(1)
+ os.system("clear")
+ input("Print any key to continue to continue")
 
- if ready.lower().strip() =="y": 
-  print("Then lets... see... who... wonnnnnnnnn!")
+ print("Then lets... see... who... wonnnnnnnnn!")
  time.sleep(1)
  os.system ("clear") #Clears screen
 
@@ -60,42 +75,22 @@ while Ui == "c":
  WinningPlayer = players[0]# For now assume first player won
  peopleplayingvalue = 0
  while peopleplayingvalue < int (numberofpeopleplaying):
+  time.sleep(1)
   if players[peopleplayingvalue].attempts < WinningPlayer.attempts:
    WinningPlayer = players[peopleplayingvalue]#found a better player so switch
-  peopleplayingvalue = peopleplayingvalue + 1
+
+ peopleplayingvalue = peopleplayingvalue + 1
 
  #With the above logic if there is tie then the first player will be the winner
   
- print("The winner is" + WinningPlayer.name + "!!!!!")
- time.sleep(1)
- os.system("clear")
- print("Thank you for playing the random number game!!!!")
- time.sleep(1)
- Ui = input("Do you want to play again. Type c if you do. If not, type anything except c")
- if Ui.lower().strip() != "c":
+
+ print("The winner is" + WinningPlayer.name)
+ file1 = open('Rajesh/bestscore.txt', 'w') 
+ file1.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
+ file1.writelines("Best Score for the last game:"+ str(WinningPlayer.attempts)+"\n")
+ file1.close() 
+ Finish = input("Thank you for playing! Do you want to play again? If yes type y, if no press any other key")
+ if Finish != "y":
   break
+ 
 
-L = int(WinningPlayer.attempts)
-
-# Writing to a file 
-file1 = open('myfile.txt', 'w') 
-file1.writelines((L)) 
-file1.close() 
-
-# Using readline() 
-file1 = open('myfile.txt', 'r') 
-count = 0
-
-while True: 
-  count += 1
-
-  # Get next line from file 
-  line = file1.readline() 
-
-  # if line is empty 
-  # end of file is reached 
-  if not line: 
-    break
-  print("Line{}: {}".format(count, line.strip())) 
-
-file1.close() 
