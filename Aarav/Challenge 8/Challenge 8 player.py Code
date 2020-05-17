@@ -29,8 +29,4 @@ class Player:
 
   def playerResults(self):
     print("Name: " + self.name)
-<<<<<<< HEAD
     print("You took " + str(self.attempts) + " tries to guess your number.")
-=======
-    print("You took " + str(self.attempts) + " tries to guess your number.")
->>>>>>> 0edc536d75b49ed3bc3ef858d3dde0d69bd72a18
