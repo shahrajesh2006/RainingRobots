@@ -5,11 +5,11 @@ from Samhith.playerS import Player
 #Line 1 imports random module, line 2 imports operating system module, line 3 imports time module, and line 4 imports local player module
 
 
-# Using readlines() 
+# opens file 
 file1 = open('Samhith/bestscoreS.txt', 'r') 
 Lines = file1.readlines() 
 
-# Strips the newline character 
+# Strips and reads file
 for line in Lines: 
 	print(line.strip()) 
  
@@ -94,7 +94,7 @@ while True:
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(2)
  os.system("clear")
- file1 = open('Rajesh/bestscore.txt', 'w') 
+ file1 = open('Samhith/bestscoreS.txt', 'w') 
  file1.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
  file1.writelines("Best Score for the last game:"+ str(WinningPlayer.attempts)+"\n")
  file1.close() 
