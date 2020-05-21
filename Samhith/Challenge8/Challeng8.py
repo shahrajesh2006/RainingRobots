@@ -1,7 +1,7 @@
 import random 
 import os
 import time
-from playerS import Player
+from player import Player
 #Line 1 imports random module, line 2 imports operating system module, line 3 imports time module, and line 4 imports local player module
 
 
