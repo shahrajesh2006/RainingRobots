@@ -3,9 +3,9 @@ import time
 import os
 from player import Player
 
+# Lets print the best score from last game
 Bestscore = open('Aarav/bestscore.txt', 'r') 
 Lines = Bestscore.readlines() 
-
 for line in Lines: 
 	print(line.strip())
 
@@ -49,7 +49,9 @@ print("The results are about to be announced...")
 for n in range(int(PlayNum)):
   players[n].playerResults()
 
+# Lets save the best score from this game
+
 Bestscore = open('Aarav/bestscore.txt', 'w') 
-Bestscore.writelines("The winner of the last game was: "+ WinningPlayer.name+"\n")
-Bestscore.writelines("The best score of the last game was: "+ str(WinningPlayer.attempts)+"\n")
+Bestscore.writelines("The winner of the last game was: "+ players[0].name+"\n")
+Bestscore.writelines("The best score of the last game was: "+ str(players[0].attempts)+"\n")
 Bestscore.close()

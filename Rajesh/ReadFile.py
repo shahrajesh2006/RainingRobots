@@ -9,7 +9,7 @@
 #file1.close() 
 
 # Using readlines() 
-file1 = open('Rajesh/myfile.txt', 'r') 
+file1 = open('Rajesh/bestscore.txt', 'r') 
 Lines = file1.readlines() 
 
 count = 0
