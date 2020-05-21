@@ -5,11 +5,11 @@ from Samhith.playerS import Player
 #Line 1 imports random module, line 2 imports operating system module, line 3 imports time module, and line 4 imports local player module
 
 
-# Using readlines() 
+# opens file 
 file1 = open('Samhith/bestscoreS.txt', 'r') 
 Lines = file1.readlines() 
 
-# Strips the newline character 
+# Strips and reads file
 for line in Lines: 
 	print(line.strip()) 
  
