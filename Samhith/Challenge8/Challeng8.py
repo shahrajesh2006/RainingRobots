@@ -100,8 +100,8 @@ while True:
  #94-98 prints who won and the lowest number of attempts
  time.sleep(5)
  os.system("clear")
- print("Here are the final results for the last game!!!!!")
- players.PlayerResults()
+ for results in range(int(numberofpeopleplaying)):
+  players[results].PlayerResults()
  #line 104-105 prints the final results of the game
  time.sleep(10)
  os.system("clear")
