@@ -1,6 +1,6 @@
 [Gitpod Workspace](#1)
 
-[Push Change to Github](#2)
+[Push Changes to Github](#2)
 
 [Deleting Gitpod Workspace](#3)
 
