@@ -39,6 +39,9 @@ Run following three commands from Gitpod terminal to push changes to Github
 
 # Deleting Gitpod Workspace
 
+If you are having issues with your workspace sometimes it may be easier to delete workspace and start over.
+Please note if you do this all the changes not pushed to Github will be lost(Important!!!)
+
 You can  delete existing Gitpod wokspace from here https://gitpod.io/workspaces/
 
 You can create a new workspace using below link
