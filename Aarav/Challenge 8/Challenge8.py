@@ -4,7 +4,7 @@ import os
 from player import Player
 
 # Lets print the best score from last game
-Bestscore = open('Aarav/bestscore.txt', 'r') 
+Bestscore = open('Aarav/bestscore1.txt', 'r') 
 Lines = Bestscore.readlines() 
 for line in Lines: 
 	print(line.strip())
@@ -51,7 +51,7 @@ for n in range(int(PlayNum)):
 
 # Lets save the best score from this game
 
-Bestscore = open('Aarav/bestscore.txt', 'w') 
+Bestscore = open('Aarav/bestscore1.txt', 'w') 
 Bestscore.writelines("The winner of the last game was: "+ players[0].name+"\n")
 Bestscore.writelines("The best score of the last game was: "+ str(players[0].attempts)+"\n")
 Bestscore.close()
