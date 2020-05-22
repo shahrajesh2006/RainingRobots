@@ -26,7 +26,7 @@ https://gitpod.io/#https://github.com/shahrajesh2006/RainingRobots
 
 # Push Workspace Changes to Github
 
-Run following three commands from Terminal to push changes to Github
+Run following three commands from Gitpod terminal to push changes to Github
 
 `git add .`
 
