@@ -3,6 +3,8 @@ import time
 import os
 from player import Player
 
+os.system("clear")
+
 # Lets print the best score from last game
 Bestscore = open('Aarav/bestscore1.txt', 'r') 
 Lines = Bestscore.readlines() 
