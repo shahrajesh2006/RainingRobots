@@ -25,13 +25,12 @@ https://gitpod.io/#https://github.com/shahrajesh2006/RainingRobots
 # Push Workspace Changes to Github
 
 Run following three commands from Terminal to push changes to Github
+
 `git add .`
 
 `git commit -m 'commit message'`
 
 `git push`
-
-1. 
 
 ------
 <a name="3"/>
