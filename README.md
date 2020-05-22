@@ -26,7 +26,9 @@ https://gitpod.io/#https://github.com/shahrajesh2006/RainingRobots
 
 # Push Workspace Changes to Github
 
-Run following three commands from Gitpod terminal to push changes to Github
+Run following four commands from Gitpod terminal to push changes to Github
+
+`git pull` This will makue sure your  Gitpod workspace is in sync with Github
 
 `git add .`
 
