@@ -43,6 +43,3 @@ if players[0].isitaTie(players):
         players[n].playerResults()
 else:
     print("The winner is " + players[0].name + "!!! Great Job!!!")
-
-
-
