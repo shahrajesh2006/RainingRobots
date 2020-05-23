@@ -30,3 +30,11 @@ class Player:
   def playerResults(self):
     print("Name: " + self.name)
     print("You took " + str(self.attempts) + " tries to guess your number.")
+
+  def isitaTie(self):
+    PCiB = 0
+    while True:
+      if players[PCiB].attempts == players[PCiB + 1].attempts:
+        return "tie"
+      else:
+        break
