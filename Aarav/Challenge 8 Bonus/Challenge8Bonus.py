@@ -1,7 +1,7 @@
 import random
 import time
 import os
-from player import Player
+from bonusplayer import Player
 
 os.system("clear")
 
