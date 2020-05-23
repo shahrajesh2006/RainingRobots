@@ -15,9 +15,9 @@ while PCiB < int(PlayNum):
   NP = Player(PlayerName, random.randint(1, 100), 0)
   PCiB = PCiB + 1
   players.append(NP)
-  #os.system("clear")
+  os.system("clear")
 
-time.sleep(3)
+time.sleep(1)
 os.system("clear")
 
 PCiB = 0
@@ -43,6 +43,3 @@ if players[0].isitaTie(players):
         players[n].playerResults()
 else:
     print("The winner is " + players[0].name + "!!! Great Job!!!")
-
-
-
