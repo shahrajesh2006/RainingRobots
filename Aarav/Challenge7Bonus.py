@@ -15,9 +15,9 @@ while PCiB < int(PlayNum):
   NP = Player(PlayerName, random.randint(1, 100), 0)
   PCiB = PCiB + 1
   players.append(NP)
-  os.system("clear")
+  #os.system("clear")
 
-time.sleep(1)
+time.sleep(3)
 os.system("clear")
 
 PCiB = 0
@@ -32,7 +32,7 @@ print("Give me a second to calculate the winner.")
 time.sleep(2)
 os.system("clear")
 
-players.sort(key=lambda x: x.attempts, reverse=False)
+players.sort(key=lambda x: x.attempts, reverse=False)#Sorting By attempts lower to highest
 
 print("The winner is about to be announced...")
 time.sleep(2)
