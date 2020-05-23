@@ -36,7 +36,14 @@ players.sort(key=lambda x: x.attempts, reverse=False)
 
 print("The winner is about to be announced...")
 time.sleep(2)
-print("The winner is " + players[0].name + "!!! Great Job!!!")
+
+PCiB = 0
+while PCiB < int(PlayNum):
+  tieornot = players[PCiB].isitaTie()
+  if tieornot == "tie":
+    print("It is a tie. There is no winner")
+  else:
+    print("The winner is " + players[0].name + "!!! Great Job!!!")
 time.sleep(2)
 print("The results are about to be announced...")
 
