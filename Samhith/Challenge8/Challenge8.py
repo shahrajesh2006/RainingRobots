@@ -6,7 +6,7 @@ from player import Player
 
 
 # opens file 
-file1 = open('Samhith/bestscoreS.txt', 'r') 
+file1 = open('Samhith/Challenge8/bestscoreS.txt', 'r') 
 Lines = file1.readlines() 
 
 # Strips and reads file
@@ -95,7 +95,7 @@ while True:
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(2)
  os.system("clear")
- file1 = open('Samhith/bestscoreS.txt', 'w') 
+ file1 = open('Samhith/Challenge8/bestscoreS.txt', 'w') 
  file1.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
  file1.writelines("Best Score for the last game:"+ str(WinningPlayer.attempts)+"\n")
  file1.close() 
