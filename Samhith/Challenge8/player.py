@@ -47,5 +47,4 @@ class Player:
          self.incrementNumberOfAttempts()#increment number of attempts
          result= self.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
          if(result=="valid"):
-           print ("before break")
-           break
+                      break

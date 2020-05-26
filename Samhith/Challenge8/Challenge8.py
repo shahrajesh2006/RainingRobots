@@ -89,7 +89,7 @@ while True:
 
  
  file2 = open('Players.txt', 'w') 
- file2.writelines(NewPerson.name + "attempts is" + str(NewPerson.attempts))
+ file2.writelines(players.name + "attempts is" + str(players.attempts))
  file2.close() 
 
  print("The winner is" + WinningPlayer.name + "!!!!!")
