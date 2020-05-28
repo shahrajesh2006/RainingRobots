@@ -32,7 +32,7 @@ print("Give me a second to calculate the winner.")
 time.sleep(2)
 os.system("clear")
 
-players.sort(key=lambda x: x.attempts, reverse=False)#Sorting By attempts lower to highest
+players.sort(key=lambda x: x.attempts, reverse=False)
 
 print("The winner is about to be announced...")
 time.sleep(2)
