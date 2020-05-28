@@ -6,12 +6,15 @@ from player import Player
 
 
 # opens file 
-file1 = open('Samhith/Challenge8/bestscoreS.txt', 'r') 
-Lines = file1.readlines() 
+file2 = open('Samhith/Challenge8/bestscoreS.txt', 'r') 
+Lines = file2.readlines() 
 
 # Strips and reads file
 for line in Lines: 
 	print(line.strip()) 
+
+file1 = open('Samhith/Challenge8/Players.txt', 'r') 
+players2 = file1.readlines() 
  
 while True:
  numberofpeopleplaying = input("How many people are playing? The max is 10 players.")#asks how many people are playing
@@ -29,7 +32,19 @@ while True:
   playersname = input("Player" + str(peopleplayingvalue + 1) + " what is your name or nickname")
   NewPerson = Player(playersname, random.randrange(1,101), 0)
   players.append(NewPerson)
-  print (players[peopleplayingvalue].name + "is now in the game!!!")
+  newplayer = "n"
+  for playedbefore in range(len(players2)):
+      play=players2[playedbefore].split("=")
+  if play[0]==playersname:
+     print("Welcome back" + playedbefore[0] + "your previous score was" + playedbefore[1])
+     time.sleep(5)
+     os.system("clear")
+     newplayer = "y"
+  else:
+    if newplayer == "n":
+     print("Welcome Newplayer!!!")
+
+  print(players[peopleplayingvalue].name + "is now in the game!!!")
   peopleplayingvalue=peopleplayingvalue+1
   #line 28-33 asks what there name is and repeats based on how many people are playing and prints whoever just entered their name is now in the game
 
@@ -88,9 +103,7 @@ while True:
  #line 81-88 makes the first player the winner and compares them with the other players and if they found a person with lower attempts and then they become the comparer
 
  
- file2 = open('Players.txt', 'w') 
- file2.writelines(players.name + "attempts is" + str(players.attempts))
- file2.close() 
+ 
 
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(2)
@@ -99,6 +112,12 @@ while True:
  file1.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
  file1.writelines("Best Score for the last game:"+ str(WinningPlayer.attempts)+"\n")
  file1.close() 
+
+ file2 = open('Samhith/Challenge8/Players.txt', 'w') 
+ for play in range (int(numberofpeopleplaying)):
+      file2.writelines(players[play].name+"=" + str(players[play].attempts) + "\n")
+ 
+ file2.close() 
  #94-98 prints who won and the lowest number of attempts
  time.sleep(5)
  os.system("clear")
