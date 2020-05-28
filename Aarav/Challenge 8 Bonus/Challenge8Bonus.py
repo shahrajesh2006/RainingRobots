@@ -7,14 +7,14 @@ os.system("clear")
 
 C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'r')
 BPlayersLines = C8BPlayers.readlines()
-for bplayerslines in C8BPlayers:
+for bplayerslines in BPlayersLines:
     print(bplayerslines.strip())
 
 Bestscore = open('Aarav/bestscore1.txt', 'r') 
-Lines = Bestscore.readlines() 
-for line in Lines: 
-	print(line.strip())
+Lines = Bestscore.readlines()
 
+print("If you a=have played before, please enter the same name you used last time.")
+time.sleep("2")
 PlayNum = input("How many players are playing (no more than 10): ")
 
 players = []
@@ -24,6 +24,8 @@ os.system("clear")
 PCiB = 0
 while PCiB < int(PlayNum):
   PlayerName = input("Player " + str(PCiB + 1) + ", please enter your name: ")
+  for p in range(len()):
+    print(bplayerslines.strip())
   NP = Player(PlayerName, random.randint(1, 100), 0)
   PCiB = PCiB + 1
   players.append(NP)
@@ -64,3 +66,4 @@ Bestscore.close()
 
 C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'w')
 C8BPlayers.writelines("")
+C8BPlayers.close()
