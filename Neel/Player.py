@@ -39,4 +39,3 @@ class Player:
         result=self.isGuessNumberValid(x)
         if(result=="valid"):
           break
-© 2020 GitHub, Inc.

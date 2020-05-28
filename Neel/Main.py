@@ -1,15 +1,16 @@
 
 import random
 import time
-from player import Player 
-FORTNITE = open('Neel/Bestscore.py', 'r') 
+from Player import Player
+
+FORTNITE = open('Neel/Bestscore.txt', 'r') 
 Lines = FORTNITE.readlines() 
 
 # Strips the newline character 
 for line in Lines: 
 	print(line.strip()) 
 
-NeelStealsSamsIdea == "y"
+NeelStealsSamsIdea = "y"
 while NeelStealsSamsIdea== "y":
  print("Welcome to the random number game")
 
@@ -34,23 +35,37 @@ while NeelStealsSamsIdea== "y":
 
 
 
- count = players[0]
- Neel = 0
- while Neel < int (GetOnePumped):
-  if players[count].attempts < Neel.attempts:
-    Neel = players[count]
-  count = count + 1
+ WinningPlayer = players[0]# For now assume first player won
+ print("For now the winning player is "+WinningPlayer.name)
+ print(WinningPlayer)
 
+
+ count = 0
+ while count < int (GetOnePumped):
+  time.sleep(1)
+  print("looping for the player"+players[count].name)
+
+  if players[count].tries < WinningPlayer.tries:
+   WinningPlayer = players[count]#found a better player so switch
+   print("Found the new winning player is "+WinningPlayer.name)
+  else:
+    print("Winning player is still the same "+WinningPlayer.name)
+  count = count + 1
 
  print("The winner is...")
  time.sleep(2)
- print("The winner is " + Neel.name + "!!! Great Job!!!")
+ print("The winner is " + WinningPlayer.name + "!!! Great Job!!!")
+ 
+ WinningPlayer.printPlayerResults()
+
+ FORTNITE = open('Neel/Bestscore.txt', 'w') 
+ FORTNITE.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
+ FORTNITE.writelines("Best Score for the last game:"+ str(WinningPlayer.tries)+"\n")
+ FORTNITE.close() 
+ 
  time.sleep(3)
-NeelStealsSamsIdea= input("Would you like to play again(y for yes and n for no)")
-if NeelStealsSamsIdea == "n":
-      break
-print("The winner is" + Neel.name)
-FORTNITE = open('Rajesh/bestscore.txt', 'w') 
-FORTNITE.writelines("Winner of the last game:"+ Neel.name+"\n")
-FORTNITE.writelines("Best Score for the last game:"+ str(Neel.attempts)+"\n")
-FORTNITE.close() 
+ NeelStealsSamsIdea= input("Would you like to play again(y for yes and n for no)")
+
+ if NeelStealsSamsIdea == "n":
+    break
+
