@@ -61,3 +61,6 @@ Bestscore = open('Aarav/bestscore1.txt', 'w')
 Bestscore.writelines("The winner of the last game was: "+ players[0].name+"\n")
 Bestscore.writelines("The best score of the last game was: "+ str(players[0].attempts)+"\n")
 Bestscore.close()
+
+C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'w')
+C8BPlayers.writelines("")
