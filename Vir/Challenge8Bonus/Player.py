@@ -7,7 +7,6 @@ class Player:
     self.name=playerName
     self.randomnumber= randomNumber
     self.tries= numberOfAttempts
-    
 
   def incrementNumberOfAttempts(self):
     self.tries=self.tries+1
