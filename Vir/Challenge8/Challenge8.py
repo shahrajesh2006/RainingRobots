@@ -62,7 +62,7 @@ print("Thank You For Playing")
 
 time.sleep(1)
 
-Bestscore = open('Vir/bestscores.txt', 'w') 
-Bestscore.writelines("Winner of the last game: "+ players[0].name+"\n")
-Bestscore.writelines("Best Score for the last game: "+ str(players[0].tries)+"\n")
+Bestscore = open('Vir/Challenge8/bestscores.txt', 'w') 
+Bestscore.writelines("Winner of the last game: " + players[0].name+"\n")
+Bestscore.writelines("Best Score for the last game: " + str(players[0].tries)+"\n")
 Bestscore.close()
