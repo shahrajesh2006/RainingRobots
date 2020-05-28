@@ -5,7 +5,11 @@ from bonusplayer import Player
 
 os.system("clear")
 
-# Lets print the best score from last game
+C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'r')
+BPlayersLines = C8BPlayers.readlines()
+for bplayerslines in C8BPlayers:
+    print(bplayerslines.strip())
+
 Bestscore = open('Aarav/bestscore1.txt', 'r') 
 Lines = Bestscore.readlines() 
 for line in Lines: 

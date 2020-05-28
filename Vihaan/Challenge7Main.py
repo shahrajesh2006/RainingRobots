@@ -1,6 +1,6 @@
 #importing objects for later
 import random
-from Player import Player
+from Challenge7Player import Player
 import os
 import time
 
@@ -40,12 +40,12 @@ if start.lower().strip() == "y":
   peoplePlayingValue = 0
   while peoplePlayingValue < int (numberOfPeoplePlaying):
     if players[peoplePlayingValue].numberOfAttempts < winningPlayer.numberOfAttempts:
-      winningPlayer = players[PeoplePlayingValue]#checks if here is a better player
+      winningPlayer = players[PeoplePlayingValue]#checks if there is a better player
     peoplePlayingValue = peoplePlayingValue + 1
 
     print("And the winner...")
     time.sleep(2)
-    print(winningPlayer.playerName)
+    print(winningPlayer.playerName + "!")
     print("You're number was " +  str (winningPlayer.randomNumber) + " and it took you " + str (winningPlayer.numberOfAttempts) + " attempts to find it!")
     print("Thank you all for playing!")
     break

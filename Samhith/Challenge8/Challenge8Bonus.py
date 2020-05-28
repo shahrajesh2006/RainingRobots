@@ -88,7 +88,9 @@ while True:
  #line 81-88 makes the first player the winner and compares them with the other players and if they found a person with lower attempts and then they become the comparer
 
  
- 
+ file2 = open('Players.txt', 'w') 
+ file2.writelines(players.name + "attempts is" + str(players.attempts))
+ file2.close() 
 
  print("The winner is" + WinningPlayer.name + "!!!!!")
  time.sleep(2)
@@ -110,5 +112,3 @@ while True:
  os.system("clear")
  if Finish != "y":
   break
- 
-
