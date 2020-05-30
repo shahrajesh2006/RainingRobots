@@ -13,8 +13,8 @@ Lines = file2.readlines()
 for line in Lines: 
 	print(line.strip()) 
 
-file1 = open('Samhith/Challenge8/Players.txt', 'r') 
-players2 = file1.readlines() 
+file2 = open('Samhith/Challenge8/Players.txt', 'r') 
+players2 = file2.readlines() 
  
 while True:
  numberofpeopleplaying = input("How many people are playing? The max is 10 players.")#asks how many people are playing
@@ -34,14 +34,13 @@ while True:
   players.append(NewPerson)
   newplayer = "n"
   for playedbefore in range(len(players2)):
-      play=players2[playedbefore].split("=")
+      play = players2[playedbefore].split("=")
       if play[0]==playersname:
-       print("Welcome back to the random number game" + playedbefore[0] + "your score from earlier is" + playedbefore[1])
-       time.sleep(5)
-       os.system("clear")
-       newplayer = "y"
-      else:
-       if newplayer == "n":
+        print("Welcome back to the random number game" + playedbefore[0] + "your score from earlier is" + playedbefore[1])
+        time.sleep(5)
+        os.system("clear")
+        newplayer = "y"
+      if newplayer == "n":
         print("Welcome Newplayer!!!")
 
   print(players[peopleplayingvalue].name + "is now in the game!!!")
