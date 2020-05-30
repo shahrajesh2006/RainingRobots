@@ -41,7 +41,7 @@ while True:
         os.system("clear")
         newplayer = "y"
       if newplayer == "n":
-        print("Welcome Newplayer!!!")
+        print("Welcome New Player to the random number game!!!!!!")
 
   print(players[peopleplayingvalue].name + "is now in the game!!!")
   peopleplayingvalue=peopleplayingvalue+1
