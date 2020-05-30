@@ -6,8 +6,8 @@ from player import Player
 
 
 # opens file 
-file2 = open('Samhith/Challenge8/bestscoreS.txt', 'r') 
-Lines = file2.readlines() 
+file1 = open('Samhith/Challenge8/bestscoreS.txt', 'r') 
+Lines = file1.readlines() 
 
 # Strips and reads file
 for line in Lines: 
@@ -15,6 +15,7 @@ for line in Lines:
 
 file2 = open('Samhith/Challenge8/Players.txt', 'r') 
 players2 = file2.readlines() 
+#reads the list of players
  
 while True:
  numberofpeopleplaying = input("How many people are playing? The max is 10 players.")#asks how many people are playing
@@ -31,19 +32,10 @@ while True:
  while peopleplayingvalue < int(numberofpeopleplaying):
   playersname = input("Player" + str(peopleplayingvalue + 1) + " what is your name or nickname")
   NewPerson = Player(playersname, random.randrange(1,101), 0)
+  NewPerson.checkExisitingPlayer(players2) # check if it is an existing player
   players.append(NewPerson)
-  newplayer = "n"
-  for playedbefore in range(len(players2)):
-      play = players2[playedbefore].split("=")
-      if play[0]==playersname:
-        print("Welcome back to the random number game" + playedbefore[0] + "your score from earlier is" + playedbefore[1])
-        time.sleep(5)
-        os.system("clear")
-        newplayer = "y"
-      if newplayer == "n":
-        print("Welcome New Player to the random number game!!!!!!")
-
-  print(players[peopleplayingvalue].name + "is now in the game!!!")
+   
+  print (players[peopleplayingvalue].name + "is now in the game!!!")
   peopleplayingvalue=peopleplayingvalue+1
   #line 28-33 asks what there name is and repeats based on how many people are playing and prints whoever just entered their name is now in the game
 
@@ -110,13 +102,12 @@ while True:
  file1 = open('Samhith/Challenge8/bestscoreS.txt', 'w') 
  file1.writelines("Winner of the last game:"+ WinningPlayer.name+"\n")
  file1.writelines("Best Score for the last game:"+ str(WinningPlayer.attempts)+"\n")
- file1.close() 
-
+ file1.close()
  file2 = open('Samhith/Challenge8/Players.txt', 'w') 
  for play in range (int(numberofpeopleplaying)):
       file2.writelines(players[play].name+ "=" + str(players[play].attempts) + "\n")
  
- file2.close() 
+ file2.close()  
  #94-98 prints who won and the lowest number of attempts
  time.sleep(5)
  os.system("clear")
@@ -130,3 +121,5 @@ while True:
  os.system("clear")
  if Finish != "y":
   break
+ 
+
