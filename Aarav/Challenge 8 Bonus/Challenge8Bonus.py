@@ -5,19 +5,19 @@ from bonusplayer import Player
 
 os.system("clear")
 
-C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'r')
-BPlayersLines = C8BPlayers.readlines()
-
 Bestscore = open('Aarav/bestscore1.txt', 'r') 
 Lines = Bestscore.readlines()
 
-print("If you a=have played before, please enter the same name you used last time.")
-time.sleep("2")
+C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'r')
+BPlayersLines = C8BPlayers.readlines()
+
 PlayNum = input("How many players are playing (no more than 10): ")
 
 players = []
 
 os.system("clear")
+
+print("If you have played before, please enter the same name you used last time.")
 
 PCiB = 0
 while PCiB < int(PlayNum):
@@ -27,13 +27,15 @@ while PCiB < int(PlayNum):
         y = BPlayersLines[p].split("=")
         if y[0] == PlayerName:
             print("Welcome back " + y[0] + ". Your previous score was " + y[1])
-    if existingplayer == "n":
-        
+            existingplayer = "y"
 
-  NP = Player(PlayerName, random.randint(1, 100), 0)
-  PCiB = PCiB + 1
-  players.append(NP)
-  os.system("clear")
+if existingplayer == "n":
+    print("Welcome " + PlayerName)
+
+NP = Player(PlayerName, random.randint(1, 100), 0)
+PCiB = PCiB + 1
+players.append(NP)
+os.system("clear")
 
 time.sleep(1)
 os.system("clear")
@@ -71,3 +73,8 @@ Bestscore.close()
 C8BPlayers = open('Aarav/challenge8bonusplayers.txt', 'w')
 C8BPlayers.writelines("")
 C8BPlayers.close()
+
+file2 = open('Aarav/challenge8bonusplayers.txt', 'w')
+for n in range(int(PlayNum)):
+    file2.writelines(players[n].name+"="+str(players[n].attempts)+"\n")
+file2.close()
