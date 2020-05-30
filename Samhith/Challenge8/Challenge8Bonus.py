@@ -35,14 +35,14 @@ while True:
   newplayer = "n"
   for playedbefore in range(len(players2)):
       play=players2[playedbefore].split("=")
-  if play[0]==playersname:
-     print("Welcome back" + playedbefore[0] + "your previous score was" + playedbefore[1])
-     time.sleep(5)
-     os.system("clear")
-     newplayer = "y"
-  else:
-    if newplayer == "n":
-     print("Welcome Newplayer!!!")
+      if play[0]==playersname:
+       print("Welcome back to the random number game" + playedbefore[0] + "your score from earlier is" + playedbefore[1])
+       time.sleep(5)
+       os.system("clear")
+       newplayer = "y"
+      else:
+       if newplayer == "n":
+        print("Welcome Newplayer!!!")
 
   print(players[peopleplayingvalue].name + "is now in the game!!!")
   peopleplayingvalue=peopleplayingvalue+1
@@ -115,7 +115,7 @@ while True:
 
  file2 = open('Samhith/Challenge8/Players.txt', 'w') 
  for play in range (int(numberofpeopleplaying)):
-      file2.writelines(players[play].name+"=" + str(players[play].attempts) + "\n")
+      file2.writelines(players[play].name+ "=" + str(players[play].attempts) + "\n")
  
  file2.close() 
  #94-98 prints who won and the lowest number of attempts
