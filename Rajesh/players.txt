@@ -1,0 +1,3 @@
+vir=5
+neel=1
+raj=7
