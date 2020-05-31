@@ -48,3 +48,22 @@ class Player:
          result= self.isGuessNumberValid(GuessedNumber) # compares if guessed number is equal to player's guessed number
          if(result=="valid"):
                       break
+#this function is used to check whether it is a exisiting player and print the welcome message
+
+
+
+
+    def checkExisitingPlayer(self,player23):
+        newplayer = "y" # by default the player is a new player    
+        for playedbefore in range(len(player23)):
+         play = player23[playedbefore].split("=")
+         
+         if play[0].strip() == self.name.strip():
+          print("Welcome back to the random number game " + play[0] + " your score from earlier is " + str(play[1]))
+          time.sleep(5)
+          os.system("clear")
+          newplayer = "n"
+    #if it is a new player, it prints a different message
+        if newplayer == "y":
+         print("Welcome New Player to the random number game!!!!!!")
+         time.sleep(5)
