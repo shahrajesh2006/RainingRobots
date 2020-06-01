@@ -1,7 +1,7 @@
 import random
 import time
 import os
-from Challenge8Player import Player
+from Challenge7Player import Player
 
 os.system("clear")
 
@@ -9,7 +9,7 @@ os.system("clear")
 bestScore = open('Vihaan/bestScore.txt', 'r') 
 Lines = bestScore.readlines() 
 for line in Lines: 
-	print(line.strip())
+ print(line.strip())
 time.sleep(2)
 
 numberOfPeoplePlaying = int (input("The max is 10 players. That being said, how many people are playing?"))
@@ -53,7 +53,7 @@ if start.lower().strip() == "y":
   peoplePlayingValue = 0
   while peoplePlayingValue < int (numberOfPeoplePlaying):
     if players[peoplePlayingValue].numberOfAttempts < winningPlayer.numberOfAttempts:
-      winningPlayer = players[PeoplePlayingValue]#checks if there is a better player
+      winningPlayer = players[peoplePlayingValue]#checks if there is a better player
     peoplePlayingValue = peoplePlayingValue + 1
 
 print("And the winner is...")
