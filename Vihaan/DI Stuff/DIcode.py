@@ -2,6 +2,8 @@ import random
 import time
 import os
 
+os.system("clear")
+
 print("Start?")
 time.sleep(1)
 print("yes")
