@@ -24,8 +24,8 @@ class Player:#this is the class
           #these 3 tell the user wether their guess is correct, low, or high
 
     def playerScore(self):#tells player their score
-        print("You're random number was " + self.randomNumber + ". It took you the least amount of attempts with an astounding " + self.numberOfAttempts + " attempts! Good Job!")
-        return"and..."
+        print("You're random number was " + str(self.randomNumber) + ". It took you the least amount of attempts with an astounding " + str(self.numberOfAttempts) + " attempts! Good Job!")
+        return"Thank you for playing!"
 
     def playGame(self):
       start = input(self.playerName + ", are you ready?")
