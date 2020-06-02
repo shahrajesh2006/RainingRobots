@@ -1,4 +1,6 @@
 import random 
+import time
+import os
 #Here is my my class with my constructor and functions
 class Player:
     #This is a constructor
@@ -39,3 +41,17 @@ class Player:
         result=self.isGuessNumberValid(x)
         if(result=="valid"):
           break
+    def ExistPlayer(self,player23):
+        CreateNewPlayer = "y" # by default the player is a new player    
+        for Skybase in range(len(player23)):
+         play = player23[Skybase].split("=")
+         
+         if play[0].strip() == self.name.strip():
+          print("Welcome to the Randomnuber game" + play[0] + " your score from earlier is " + str(play[1]) + " :sweat")
+          time.sleep(4)
+          os.system("clear")
+          newplayer = "n"
+    #if it is a new player, it prints a different message
+        if newplayer == "y":
+         print("Welcome New Player to the random number game! The goal of this game is to get the epic virctory royale.")
+         time.sleep(5)

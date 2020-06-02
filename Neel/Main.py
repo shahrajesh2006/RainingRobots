@@ -3,21 +3,7 @@ import random
 import time
 from Player import Player
 
-FORTNITE = open('Neel/Bestscore.txt', 'r') 
-Lines = FORTNITE.readlines() 
 
-# Strips the newline character 
-for line in Lines: 
-	print(line.strip()) 
-
-NeelStealsSamsIdea = "y"
-while NeelStealsSamsIdea== "y":
- print("Welcome to the random number game")
-
- players =[] #create empty list of players when the program starts
-
-# When you create player object you can add it to the list as shown below
-#Lest assume 5 players want to play the games
  count=0
  GetOnePumped = int(input("How many players are playing"))
  while count < GetOnePumped:
