@@ -28,14 +28,12 @@ while PCiB < int(PlayNum):
         if y[0] == PlayerName:
             print("Welcome back " + y[0] + ". Your previous score was " + y[1])
             existingplayer = "y"
-
-if existingplayer == "n":
-    print("Welcome " + PlayerName)
-
-NP = Player(PlayerName, random.randint(1, 100), 0)
-PCiB = PCiB + 1
-players.append(NP)
-os.system("clear")
+        elif existingplayer == "n":
+            print("Welcome " + PlayerName)
+    NP = Player(PlayerName, random.randint(1, 100), 0)
+    PCiB = PCiB + 1
+    players.append(NP)
+    os.system("clear")
 
 time.sleep(1)
 os.system("clear")
