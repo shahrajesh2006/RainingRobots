@@ -29,7 +29,7 @@ playersplayingvalue = 0
 while playersplayingvalue < int(numberofplayers): 
   playersname = input("Player " + str(playersplayingvalue + 1) + " what is your username: ") 
   NewPlayer = Player(playersname, random.randrange(1,101), 0)
-  players.append(NewPlayer)#Adding new player to the list
+  #players.append(NewPlayer)#Adding new player to the list
   NewPlayer.checkExisitingPlayer(Lines2) # check if it is an existing player
   players.append(NewPlayer)
 
