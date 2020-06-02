@@ -1,7 +1,7 @@
 import random
 import time
 import os
-from Challenge7Player import Player
+from BonusPlayer import Player
 
 os.system("clear")
 
@@ -36,12 +36,13 @@ while peoplePlayingValue < int(numberOfPeoplePlaying):
   players[peoplePlayingValue].playGame()
   peoplePlayingValue = peoplePlayingValue + 1
 
+time.sleep(2)
 print("Just one moment...")
 
 time.sleep(2)
 os.system("clear")
 
-players.sort(key=lambda x: x.numberOfAttempts, reverse=False)
+players.sort(key = lambda x: x.numberOfAttempts, reverse = False)
 
 start = input("Are you ready to see who won yet?")
 if start.lower().strip() == "y":
@@ -58,9 +59,16 @@ if start.lower().strip() == "y":
 
 print("And the winner is...")
 time.sleep(3)
-print(winningPlayer.playerName + "!")
-time.sleep(2)
-print(winningPlayer.playerScore())
+
+if players[0].tieChecker(players):
+    print("Nobody! It's a tie!")
+    for n in range(int(numberOfPeoplePlaying)):
+        players[n].playerTie()
+
+else:
+    print(winningPlayer.playerName + "!")
+    time.sleep(2)
+    print(winningPlayer.playerScore())
 
 # Lets save the best score from this game
 
