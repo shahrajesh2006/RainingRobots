@@ -1,6 +1,7 @@
 import random
 import time
-from Player import Player 
+
+from player import Player 
 
 print("Welcome to the random number game")
 
@@ -8,7 +9,7 @@ print("Welcome to the random number game")
 File1 = open('Neel/Challenge8/bestscoreS.txt', 'r') 
 File1Lines = File1.readlines() 
 
-# Strips and reads file
+#reads file
 for line in File1Lines: 
 	print(line.strip()) 
 
@@ -24,7 +25,7 @@ count=0
 GetOnePumped = int(input("How many players are playing "))
 while count < GetOnePumped:
   playername= input("Player"+str(count+1)+ " what would you like your name to be:")
-  NewPlayer = Player(playername, random.randrange(1,40), 0)
+  NewPlayer = Player(playername, random.randrange(1,5), 0)
   NewPlayer.ExistPlayer(sweat)
   players.append(NewPlayer)
   count=count+1
@@ -41,10 +42,15 @@ while count < GetOnePumped:
 players.sort(key=lambda x: x.tries, reverse=False)
  #With the above logic if there is tie then the first player will be the winner
 
-print("The winner is" +players[0].name + "!!!!!") time.sleep(1)
+print("The winner is" +players[0].name + "!!!!!")
+time.sleep(1)
 print("Here are the final results")
  
 for x in range(int(GetOnePumped)):
-  players[x].PlayerResults()
+  players[x].printPlayerResults()
+
+file2 = open('Neel/Challenge8/Players.txt', 'w') 
+for play in range (int(GetOnePumped)):
+      file2.writelines(players[play].name+ "=" + str(players[play].tries) + "\n")
+file2.close()
  
-NeelStealsSamsIdea= input("Would you like to play again(y for yes and n for no)")

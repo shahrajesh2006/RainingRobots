@@ -7,7 +7,7 @@ class Player:
     self.name=playerName
     self.randomnumber= randomNumber
     self.tries= numberOfAttempts
-    
+    print("Random Number is"+str(self.randomnumber))
 
   def incrementNumberOfAttempts(self):
     self.tries=self.tries+1
@@ -39,3 +39,19 @@ class Player:
         os.system("clear")    
         break
         
+  def checkExisitingPlayer(self,PlayeR):
+    newplayer = "y" # by default the player is a new player    
+    for playedbefore in range(len(PlayeR)):
+        play = PlayeR[playedbefore].split("=")
+            
+        if play[0].strip() == self.name.strip():
+            print("Welcome Back " + play[0] + " | Your Previous Score = " + str(play[1]))
+            time.sleep(5)
+            os.system("clear")
+            newplayer = "n"
+        
+    if newplayer == "y":
+        print("Welcome New Player")
+        time.sleep(5)
+
+            
