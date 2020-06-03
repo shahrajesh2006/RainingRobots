@@ -32,7 +32,7 @@ while PCiB < int(PlayNum):
             existingplayer = "y"
             time.sleep(3)
     if existingplayer == "n":
-        print("Welcome new player " + PlayerName)
+        print("Welcome " + PlayerName)
         time.sleep(3)
     PCiB = PCiB + 1
     os.system("clear")
@@ -56,14 +56,15 @@ players.sort(key=lambda x: x.attempts, reverse=False)
 
 print("The winner is about to be announced...")
 time.sleep(2)
-print("The winner is " + players[0].name + "!!! Great Job!!!")
-time.sleep(2)
-print("The results are about to be announced...")
 
+if players[0].isitaTie(players):
+    print("It is a tie. There is no winner")
+else:
+    print("The winner is " + players[0].name + "!!! Great Job!!!")
+
+print("The results are about to be announced")
 for n in range(int(PlayNum)):
-  players[n].playerResults()
-
-# Lets save the best score from this game
+        players[n].playerResults()
 
 Bestscore = open('Aarav/bestscore1.txt', 'w') 
 Bestscore.writelines("The winner of the last game was: "+ players[0].name+"\n")

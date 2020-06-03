@@ -30,3 +30,9 @@ class Player:
   def playerResults(self):
     print("Name: " + self.name)
     print("You took " + str(self.attempts) + " tries to guess your number.")
+
+  def isitaTie(self,players):
+      if players[0].attempts==players[1].attempts:
+          return True
+      else:
+        return False

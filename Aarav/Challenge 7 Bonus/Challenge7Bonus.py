@@ -39,7 +39,9 @@ time.sleep(2)
 
 if players[0].isitaTie(players):
     print("It is a tie. There is no winner")
-    for n in range(int(PlayNum)):
-        players[n].playerResults()
 else:
     print("The winner is " + players[0].name + "!!! Great Job!!!")
+
+print("The results are about to be announced")
+for n in range(int(PlayNum)):
+        players[n].playerResults()
