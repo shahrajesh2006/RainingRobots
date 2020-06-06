@@ -34,12 +34,13 @@ while peoplePlayingValue < int(numberOfPeoplePlaying):
   for x in range(len(repeatPlayerLines)):
       y = repeatPlayerLines[x].split(" = ")
       if y[0] == PlayerName:
-          print("Welcome back" + y[0] + "! Last time you played, your score was " + y[1])
+          print("Welcome back " + y[0] + "! Last time you played, your score was " + y[1])
           playedBefore = "y"
           time.sleep(2)
-if playedBefore == "n":
+  #If there is a new player then print welcome message
+  if playedBefore == "n":
     print("Welcome!")
-peoplePlayingValue = peoplePlayingValue + 1
+  peoplePlayingValue = peoplePlayingValue + 1
 
 time.sleep(1)
 os.system("clear")

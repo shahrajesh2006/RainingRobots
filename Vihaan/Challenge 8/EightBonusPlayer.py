@@ -6,7 +6,7 @@ class Player:#this is the class
         self.playerName = playerName
         self.randomNumber = randomNumber
         self.numberOfAttempts = numberOfAttempts
-        print(self.randomNumber)
+        #print(self.randomNumber)
 
     def incrementNumberOfAttempts(self):#this counts attempts
           self.numberOfAttempts = self.numberOfAttempts + 1
