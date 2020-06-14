@@ -108,6 +108,7 @@ while True:
       file2.writelines(players[play].name+ "=" + str(players[play].attempts) + "\n")
  
  file2.close()  
+ players.sort(key=lambda x: x.attempts, reverse=False)
  #94-98 prints who won and the lowest number of attempts
  time.sleep(5)
  os.system("clear")

@@ -1,2 +1,1 @@
- sam=10
- neel=1
+ samhith=7
