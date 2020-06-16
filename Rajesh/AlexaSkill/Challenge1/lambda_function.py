@@ -43,9 +43,10 @@ def launch_request_handler(handler_input):
     session_attr['no_of_guesses'] = 0
 
     speech_text = (
-        "Welcome to the High Low guessing game.Say a number between 1 and 100")
+        "Welcome to the High Low guessing game created by RR Game. Say a number between 1 and 100")
 
     handler_input.response_builder.speak(speech_text).ask(speech_text)
+    
     return handler_input.response_builder.response
 
 #This is NumberGuessIntent
@@ -58,28 +59,29 @@ def number_guess_handler(handler_input):
     guess_num = int(handler_input.request_envelope.request.intent.slots[
         "number"].value)
 
-    session_attr["no_of_guesses"] += 1#Increment number of guess by 1
+    session_attr["no_of_guesses"] = session_attr["no_of_guesses"]+1 #Increment number of guess by 1
 
     if guess_num > target_num:
         speech_text = (
             "{} is too high. Try saying a smaller number.".format(guess_num))
         reprompt = "Try saying a smaller number."
+        handler_input.response_builder.speak(speech_text).ask(reprompt)
+
     elif guess_num < target_num:
         speech_text = (
             "{} is too low. Try saying a larger number.".format(guess_num))
         reprompt = "Try saying a larger number."
+        handler_input.response_builder.speak(speech_text).ask(reprompt)
     elif guess_num == target_num:
         speech_text = (
             "Congratulations. {} is the correct guess. "
             "You guessed the number in {} guesses. "
-            "Would you like to play a new game?".format(
+            "Thanks for playing".format(
                 guess_num, session_attr["no_of_guesses"]))
-        reprompt = "Say yes to start a new game or no to end the game"
-    else:
-        speech_text = "Sorry, I didn't get that. Try saying a number."
-        reprompt = "Try saying a number."
-
-    handler_input.response_builder.speak(speech_text).ask(reprompt)
+        reprompt = "Thanks for playing"
+        handler_input.response_builder.speak(
+        speech_text).set_should_end_session(True)
+    
     return handler_input.response_builder.response
 
 # Igore everything Below here for now----------------------------------------------------------------
