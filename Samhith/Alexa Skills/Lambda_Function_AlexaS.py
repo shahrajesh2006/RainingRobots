@@ -42,7 +42,7 @@ def launch_request_handler(handler_input):
     session_attr['no_of_guesses'] = 0
 
     speech_text = (
-        "Welcome to the High Low guessing game created by RR Game. Say a number between 1 and 100")
+        "Welcome to the High Low guessing game brought to you by RR Games and Company! Say a number between 1 and 100")
 
     handler_input.response_builder.speak(speech_text).ask(speech_text)
     
@@ -75,7 +75,7 @@ def number_guess_handler(handler_input):
         speech_text = (
             "Congratulations. {} is the correct guess. "
             "You guessed the number in {} guesses. "
-            "Thanks for playing".format(
+            "Thanks for playing and the RR Games and Company hopes you enjoyed the game and have a great day!".format(
                 guess_num, session_attr["no_of_guesses"]))
         reprompt = "Thanks for playing"
         handler_input.response_builder.speak(
@@ -83,7 +83,7 @@ def number_guess_handler(handler_input):
     
     return handler_input.response_builder.response
 
-# Igore everything Below here for now----------------------------------------------------------------
+# Ignore everything Below here for now----------------------------------------------------------------
 
 
 
