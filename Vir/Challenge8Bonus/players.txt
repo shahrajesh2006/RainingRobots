@@ -1,2 +1,2 @@
-vir=2
-rajesh=4
+vir=1
+neel=2
