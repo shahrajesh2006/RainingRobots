@@ -16,7 +16,6 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 from ask_sdk_s3.adapter import S3Adapter
-from Player import Player
 
 SKILL_NAME = 'RR Game'
 bucket_name = os.environ.get('S3_PERSISTENCE_BUCKET')
@@ -40,10 +39,10 @@ def launch_request_handler(handler_input):
     # type: (HandlerInput) -> Response
     
     session_attr = handler_input.attributes_manager.session_attributes
-    session_attr['game_status'] = "waiting_for_player1_name" # next status : player_one_playing, player_two_playing, results
-    session_attr["no_of_guesses"] = 0
+    session_attr["game_status"] = "waiting_for_player1_name" # next status : waiting_for_player2_name,player_one_playing, player_two_playing, results
+    
     speech_text = (
-        "Welcome to the RR Game created by a member of the Raining Robots Robotics Team. Two players can play this game. Please say the name of player one, than say player 2's name, then say yes to continue.")
+        "Welcome to the High Low guessing game created by RR Game. Two players can play this game. Please say the name of player One")
 
     handler_input.response_builder.speak(speech_text).ask(speech_text)
     
@@ -52,37 +51,58 @@ def launch_request_handler(handler_input):
 #This is NumberGuessIntent
 @sb.request_handler(can_handle_func=lambda input:is_intent_name("NumberGuessIntent")(input))
 def number_guess_handler(handler_input):
+    
     """Handler for processing guess with target."""
-    # type: (HandlerInput) -> Response
+    # type: (HandlerInput) -> Respons
+    
     session_attr = handler_input.attributes_manager.session_attributes
-    target_num = session_attr["guess_number"]
+   #lets find who is playing player 1 or 2 
+    if session_attr["game_status"] =="player_one_playing":
+        target_num = session_attr["player1_randomNumber"]
+        session_attr["player1_attempts"] = session_attr["player1_attempts"]+1 #Increment number of guess by 1
+        playerName=session_attr["player1_playerName"]
+        attempts= session_attr["player1_attempts"] 
+    elif session_attr["game_status"] =="player_two_playing":
+        target_num = session_attr["player2_randomNumber"]
+        session_attr["player2_attempts"] = session_attr["player2_attempts"]+1 #Increment number of guess by 1
+        playerName=session_attr["player2_playerName"]
+        attempts= session_attr["player2_attempts"] 
+        
     guess_num = int(handler_input.request_envelope.request.intent.slots[
         "number"].value)
-
-    session_attr["no_of_guesses"] = session_attr["no_of_guesses"]+1 #Increment number of guess by 1
-
+    
     if guess_num > target_num:
         speech_text = (
-            "{} is too high. Try saying a smaller number.".format(guess_num))
+            "{} is too high {}! try saying a smaller number.".format(guess_num,playerName))
         reprompt = "Try saying a smaller number."
         handler_input.response_builder.speak(speech_text).ask(reprompt)
 
     elif guess_num < target_num:
         speech_text = (
-            "{} is too low. Try saying a larger number.".format(guess_num))
+            "{} is too low {}! try saying a larger number.".format(guess_num,playerName))
         reprompt = "Try saying a larger number."
         handler_input.response_builder.speak(speech_text).ask(reprompt)
     elif guess_num == target_num:
-        speech_text = (
-            "Congratulations. {} is the correct guess. "
+        if session_attr["game_status"] =="player_one_playing":
+            session_attr["game_status"] ="player_two_playing"
+            speech_text = (
+            "Congratulations {}!. {} is the correct guess. "
             "You guessed the number in {} guesses. "
-            "Thanks for playing".format(
-                guess_num, session_attr["no_of_guesses"]))
-        reprompt = "Thanks for playing"
+            "Now player 2 guess a number between 1 and 100".format(playerName,
+                guess_num, attempts))
+            reprompt="Player two plays"
+        elif session_attr["game_status"] =="player_two_playing":
+            session_attr["game_status"] ="results"
+            speech_text = (
+            "Congratulations {}!. {} is the correct guess. "
+            "You guessed the number in {} guesses. "
+            "Its time to find out who won. Please say results".format(playerName,
+                guess_num, attempts))
+            reprompt="Time for results"
         handler_input.response_builder.speak(
-        speech_text).set_should_end_session(True)
-    
-    return handler_input.response_builder.response
+        speech_text).ask(reprompt)
+        
+    return handler_input.response_builder.response 
     
     #This is NumberGuessIntent
 @sb.request_handler(can_handle_func=lambda input:is_intent_name("PlayerNameIntent")(input))
@@ -94,48 +114,52 @@ def number_guess_handler(handler_input):
         "player_name"].value
         
     # Now lets create the player1 object
-    New_Player=Player(player_name, 50, 0)
-    
+    #New_Player=Player(player_name, 50, 0)
     
     session_attr = handler_input.attributes_manager.session_attributes
     
-    """if session_attr['game_status']=="waiting_for_player1_name":#If we don't have player one that means its player one name
-        session_attr['player_name1'] = New_Player#Save player one object in session
-        session_attr['game_status']=="waiting_for_player2_name":
-        speech_text = ("I got the player one name  {}. Please say the name of player Two".format(New_Player.name))
-    else:#It is player Two Game
-        session_attr['player_name2'] = New_Player#Save player two object in session
-        session_attr['game_status'] ="player_one_playing"
-        speech_text = ("I got the player two name  {}. We are ready to start the game".format(New_Player.name))
-    """
-    speech_text = ("I got the player one name  {}. Please say the name of player Two".format(player_name))
-
+    if session_attr["game_status"] =="waiting_for_player1_name":#If we don't have player one that means its player one name
+        session_attr["player1_playerName"] = player_name #Save player one object in session
+        session_attr["player1_randomNumber"] = 50 #Save player one object in session
+        session_attr["player1_attempts"] = 0 #Save player one object in session
+        session_attr["game_status"] ="waiting_for_player2_name"
+        speech_text = ("I got the player one name  {}. Please say the name of player Two".format(player_name))
+    elif session_attr["game_status"] =="waiting_for_player2_name":#It is player Two Game
+        session_attr["player2_playerName"] = player_name #Save player one object in session
+        session_attr["player2_randomNumber"] = 75 #Save player one object in session
+        session_attr["player2_attempts"] = 0 #Save player one object in session
+        session_attr["game_status"] ="player_one_playing"
+        speech_text = ("I got the player two name  {}. We are ready to start the game. Player one are you ready. Guess a number between 1 and 100".format(player_name))
+    
     handler_input.response_builder.speak(speech_text).ask(speech_text)
     
     return handler_input.response_builder.response
-    
-    
-    #This is yes intent
-@sb.request_handler(can_handle_func=lambda input:is_intent_name("AMAZON.YesIntent")(input))
+
+#This is FinalResultsIntent
+@sb.request_handler(can_handle_func=lambda input:is_intent_name("FinalResultsIntent")(input))
 def number_guess_handler(handler_input):
-    """Handler for processing YesIntent ."""
-    # type: (HandlerInput) -> Response
+    
+    """Handler for processing guess with target."""
+    # type: (HandlerInput) -> Respons
+    
     session_attr = handler_input.attributes_manager.session_attributes
-    session_attr['status']='playing'
-    
-    handler_input.response_builder.speak( "Say a number between 1 and 100.").ask( "Say a number between 1 and 100.")
-    
-    return handler_input.response_builder.response
+   #lets find who is playing player 1 or 2 
+    if session_attr["game_status"] =="results":
+        playerName1=session_attr["player1_playerName"]
+        attempts1= session_attr["player1_attempts"]
+        playerName2=session_attr["player2_playerName"]
+        attempts2= session_attr["player2_attempts"]
+        if attempts1 < attempts2:#Player1 won the game
+            speech_text = ("{} is the winner".format(playerName1))
+        elif attempts1 == attempts2:
+            speech_text = ("It's a tie. There is no winner.")
+        else:
+            speech_text = ("{} is the winner".format(playerName2))
+    else:
+        speech_text = ("The game is not over yet. The results cannot be accessed until the game is over.")
+        
+    handler_input.response_builder.speak(speech_text).ask(speech_text)
 
-#This is no intent
-@sb.request_handler(can_handle_func=lambda input:is_intent_name("AMAZON.NoIntent")(input))
-def no_handler(handler_input):
-    """Handler for No Intent, only if the player said no for
-    a new game.
-    """
-    speech_text = "Thanks. Bye Bye! The RR Games and Company hopes you have a great day!!"
-
-    handler_input.response_builder.speak(speech_text).set_should_end_session(True)
     return handler_input.response_builder.response
 
 # Igore everything Below here for now----------------------------------------------------------------
