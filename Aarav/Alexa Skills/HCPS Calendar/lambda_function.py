@@ -115,10 +115,13 @@ def number_guess_handler(handler_input):
     File1 = open('hcpscalendar.txt', 'r') 
     File1Lines = File1.readlines() 
 
-    for line in File1Lines:
-        AllHolidays = AllHolidays + line
+    lines_matched="" # Define a variable to store the lines matched from the hcps calendar
 
-    handler_input.response_builder.speak(AllHolidays)
+    for line in File1Lines:
+        if line.find("Diwali")!=-1:
+            lines_matched = lines_matched + line
+
+    handler_input.response_builder.speak(lines_matched)
     return handler_input.response_builder.response
 
 # Igore everything Below here for now----------------------------------------------------------------
