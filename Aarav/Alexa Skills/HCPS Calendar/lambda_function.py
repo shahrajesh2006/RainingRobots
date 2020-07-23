@@ -115,14 +115,43 @@ def number_guess_handler(handler_input):
     File1 = open('hcpscalendar.txt', 'r') 
     File1Lines = File1.readlines() 
 
-    lines_matched="" # Define a variable to store the lines matched from the hcps calendar
+    lines_matched = "" # Define a variable to store the lines matched from the hcps calendar
 
     for line in File1Lines:
-        if line.find("Diwali")!=-1:
+        if line.find("holiday") != -1:
             lines_matched = lines_matched + line
 
     handler_input.response_builder.speak(lines_matched)
     return handler_input.response_builder.response
+
+
+#This is SearchIntent
+@sb.request_handler(can_handle_func=lambda input:is_intent_name("SearchIntent")(input))
+def number_guess_handler(handler_input):
+    
+    """Handler for processing guess with target."""
+    # type: (HandlerInput) -> Respons
+
+    # event = int(handler_input.request_envelope.request.intent.slots[
+    # "Event"].value)
+    
+    event = "diwali"
+
+    File1 = open('hcpscalendar.txt', 'r') 
+    File1Lines = File1.readlines() 
+
+    lines_matched = "" # Define a variable to store the lines matched from the hcps calendar
+
+    for line in File1Lines:
+        if line.lower().find(event) != -1:
+            lines_matched = lines_matched + line
+
+    if lines_matched == "":
+        lines_matched = "No events found."
+
+    handler_input.response_builder.speak(lines_matched)
+    return handler_input.response_builder.response
+
 
 # Igore everything Below here for now----------------------------------------------------------------
 
