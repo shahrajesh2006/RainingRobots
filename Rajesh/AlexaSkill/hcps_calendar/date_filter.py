@@ -15,13 +15,13 @@ for line in Lines:
 
 #print(lines_matched)
 
-today = date.today()
+today = date.today()#today's date object
 print("Today's date:", today)
 
-date_str = '06/08/2020' # The date - 29 Dec 2017
+date_str = '11/28/2020' # The date - 29 Dec 2017
 format_str = '%m/%d/%Y' # The format
-datetime_obj = datetime.datetime.strptime(date_str, format_str)
-print(datetime_obj.date())
+datetime_obj = datetime.datetime.strptime(date_str, format_str).date()
+print(datetime_obj)
 
 
 # Check the dates 
@@ -29,9 +29,9 @@ if today == datetime_obj:
     print("Both dates are equal") 
       
 elif today > datetime_obj: 
-    print("Today is greater than date") 
+    print("Today is greater than date from calendar") 
       
 else: 
-    print("Today is less than date") 
+    print("Today is before the date from calendar") 
 
 
