@@ -64,7 +64,7 @@ def launch_request_handler(handler_input):
     session_attr["game_status"] = "waiting_for_player1_name" # next status : waiting_for_player2_name,player_one_playing, player_two_playing, results
     
     speech_text = (
-        "Welcome to the HCPS School Calendar created by the Raining Robots from Virginia. Ask me a date for a holiday, for example, ask: when does winter break start.")
+        "Welcome to the HCPS School Calendar created by the Raining Robots from Virginia. Say the name of a holiday, and the skill wil tell you when it is.")
 
     handler_input.response_builder.speak(speech_text).ask(speech_text)
     
@@ -158,9 +158,31 @@ def number_guess_handler(handler_input):
     if lines_matched6 == "":
         lines_matched6 = "No events found."
 
-    handler_input.response_builder.speak(lines_matched6).ask("More events")
+    handler_input.response_builder.speak(lines_matched6+"Do you want to ask another holiday? If so, say yes, if not, say no to end the game").ask("Ask me for a holiday")
     return handler_input.response_builder.response
 
+
+ #This is yes intent
+@sb.request_handler(can_handle_func=lambda input:is_intent_name("AMAZON.YesIntent")(input))
+def number_guess_handler(handler_input):
+    """Handler for processing YesIntent ."""
+    # type: (HandlerInput) -> Response
+    #session_attr = handler_input.attributes_manager.session_attributes
+    speech_text = ("Great, please say another holiday")
+    
+    handler_input.response_builder.speak(speech_text).ask("Say another holiday")
+    return handler_input.response_builder.response
+
+#This is no intent
+@sb.request_handler(can_handle_func=lambda input:is_intent_name("AMAZON.NoIntent")(input))
+def no_handler(handler_input):
+    """Handler for No Intent, only if the player said no for
+    a new game.
+    """
+    speech_text = ("Thanks. Bye Bye! The HCPS Calendar Skill wishes you an awesome day! ")
+
+    handler_input.response_builder.speak(speech_text).set_should_end_session(True)
+    return handler_input.response_builder.response
 
 
 
