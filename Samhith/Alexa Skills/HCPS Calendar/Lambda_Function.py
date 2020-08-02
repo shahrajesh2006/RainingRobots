@@ -16,6 +16,9 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 from ask_sdk_s3.adapter import S3Adapter
+from datetime import date
+import datetime
+
 
 SKILL_NAME = 'HCPS Calendar'
 bucket_name = os.environ.get('S3_PERSISTENCE_BUCKET')
@@ -28,6 +31,25 @@ logger.setLevel(logging.INFO)
 
 
 SKILL_NAME = 'HCPS Calendar'
+
+
+
+
+#This function will take String parameter convert to date and compare and return True if the date is before today
+def isBeforeToday(date_str):
+    #Step 1: convert string to date object
+    format_str = '%m/%d/%Y' # The format
+    date_object = datetime.datetime.strptime(date_str, format_str).date()
+    #print("Date object:", date_object)
+    #Step 2: get today's date
+    today = date.today()
+    #print("Today's date:", today)
+    #Step 3: Compare dates
+    if date_object<today:
+        return True
+    else:
+        return False
+
 
 #This is to handle the Launch Request or Invocation
 @sb.request_handler(can_handle_func=is_request_type("LaunchRequest"))
@@ -125,18 +147,24 @@ def number_guess_handler(handler_input):
 
     for line6 in File6Lines:
         if line6.lower().find(search_query) != -1:
-            lines_matched6 = lines_matched6 + line6
+            #lines_matched6 = lines_matched6 + line6
+            #line_split=line6.split=(':')
+            date_str=line6[0:10]
+            #date_str=line_split[0]
+            if isBeforeToday(date_str) == False:
+                lines_matched6 = lines_matched6 + line6
+
 
     if lines_matched6 == "":
         lines_matched6 = "No events found."
 
-    handler_input.response_builder.speak(lines_matched6)
+    handler_input.response_builder.speak(lines_matched6).ask("More events")
     return handler_input.response_builder.response
 
 
 
 
-# Igore everything Below here for now----------------------------------------------------------------
+# Ignore everything Below here for now----------------------------------------------------------------
 
 
 #This when the Alexa skill is not able to find a skill based utterance
